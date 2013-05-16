@@ -1,0 +1,27 @@
+<h1>Editing Result #<%= @result.id %></h1>
+
+
+<%= form_tag(result_url(@result), method: 'put') do %>
+
+  <div>
+    <%= label_tag :rank %><br />
+    <%= text_field_tag :rank, @result.rank %>
+  </div>
+
+  <div>
+    <%= label_tag :laptime %><br />
+    <%= text_field_tag :laptime, @result.laptime %>
+  </div>
+
+  <div>
+    <%= label_tag :team_id %><br />
+    <%= text_field_tag :team_id, @result.team_id %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Update Result" %>
+  </div>
+
+<% end %>
+

@@ -1,0 +1,46 @@
+<h1>Teams</h1>
+
+<p><%= link_to 'Add a New Team', new_team_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Boat type</th>
+      <th>Club</th>
+      <th>Heats</th>
+      <th>Rowers</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @teams.each do |team| %>
+    <tr>
+      <td><%= team.name %></td>
+      <td><%= team.boat_type.name %></td>
+      <td><%= link_to team.club.name, club_url(team.club) %></td>
+      <td>
+        <% team.heats.each do |heat| %>
+        <%= link_to heat.name, heat_url(heat) %>
+        <% end %>
+      </td>
+      <td>
+        <% team.rowers.each do |rower| %>
+        <%= link_to rower.name, rower_url(rower) %>
+        <% end %>
+      </td>
+      <td><%= link_to 'Show', team_url(team), :class => "btn btn-success"  %></td>
+      <td><%= link_to 'Edit', edit_team_url(team) %></td>
+      <td><%= link_to 'Destroy', team_url(team), method: 'delete', data: { confirm: "Do you really want to delete this team?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

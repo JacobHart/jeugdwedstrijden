@@ -1,0 +1,39 @@
+<h1>Heats showpage for vlothonden and start and finish</h1>
+
+<p><%= link_to 'Add a New Heat', new_heat_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Heat</th>
+      <th>Lane 1</th>
+      <th>Lane 2</th>
+      <th>Lane 3</th>
+      <th>Lane 4</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @heats.each do |heat| %>
+    <tr>
+      <td><%= heat.name %></td>
+
+        <% heat.team_classifications.each do |team_classification|%>
+        <td>
+          <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name})"%><br>
+          <%= team_classification.boat.name %>
+        </td>
+
+        <% end %>
+
+        <% (4-heat.teams.each.count).times do%>
+        <td></td>
+        <% end %>
+
+      <td><%= link_to 'Show all rowers', heat_url(heat), :class => "btn btn-success"  %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

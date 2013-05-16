@@ -1,0 +1,59 @@
+<h1>Boat Type #<%= @boat_type.id %></h1>
+<h1>Hoe checken hoeveel laptimes?!!!!</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= @boat_type.name %></th>
+    </tr>
+    <tr>
+      <th>Team</th>
+      <th>Rowers</th>
+      <th>Laptime 1</th>
+      <th>Laptime 2</th>
+      <th>Laptime total</th>
+      <th>Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# teams = @boat_type.teams.sort { |b, a| b.results.sum(:laptime).to_f <=> a.results.sum(:laptime).to_f } %>
+    <% @boat_type.teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td>
+          <% team.rowers.each do |rower| %>
+            <%= link_to rower.name, rower_url(rower) %>
+          <% end %>
+        </td>
+        <% team.results.each do |result| %>
+          <td><%= result.laptime %></td>
+
+        <% end %>
+          <%# form_tag(result_url(result), method: 'put') do %>
+
+          <%# hidden_field_tag :team_id, team.id%>
+
+          <%# hidden_field_tag :heat_id, TeamClassification.#ind_by_team_id_and_heat_id(team.id, result.heat.id).heat.id%>
+
+          <%# hidden_field_tag :laptime, result.laptime%>
+          <%# hidden_field_tag :rank, "1" %>
+          <%# submit_tag "Update", :class => "btn btn-warning"  %>
+          <%#end %>
+          <%#end %>
+        <td>
+          <%= team.results.sum(:laptime) %>
+        </td>
+        <td>
+          <%= team.results.first.rank %>
+        </td>
+      </tr>
+    <% end %>
+      <tr>
+        <td colspan="6">
+          <%= link_to "calculate rank", calculaterank_url(1), :class => "btn btn-warning" %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,59 @@
+<h1>Editing Heats for admins</h1>
+
+<p><%= link_to 'Add a New Heat', new_heat_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Heat</th>
+      <th>Lane 1</th>
+      <th>Lane 2</th>
+      <th>lane 3</th>
+      <th>Lane 4</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @heats.each do |heat| %>
+    <tr>
+      <td><%= heat.name %><br><%= link_to 'Destroy Heat', heat_url(heat), method: 'delete', data: { confirm: "Do you really want to delete this heat?" }, :class => "btn btn-danger"  %></td>
+        <% heat.team_classifications.each do |team_classification|%>
+        <td>
+            <%= form_tag(team_classification_url(TeamClassification.find_by_heat_id_and_team_id(heat.id,team_classification.team.id)), method: 'put') do %>
+
+            <%= select_tag(:team_id, options_from_collection_for_select(Team.all, :id, :name, team_classification.team.id)) %>
+
+            <%= select_tag(:boat_id, options_from_collection_for_select(Boat.all, :id, :name, team_classification.boat.id)) %>
+
+            <%= hidden_field_tag(:heat_id, team_classification.heat.id) %>
+
+            <%= submit_tag "Update", :class => "btn btn-warning"  %>
+            <%= link_to 'Destroy', team_classification_url(TeamClassification.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id)), method: 'delete', data: { confirm: "Do you really want to delete this boatlist?" }, :class => "btn btn-danger"  %>
+          <% end %>
+        </td>
+        <% end %>
+        <% (4-heat.teams.each.count).times do%>
+        <td>
+            currently empty
+            <%= form_tag(team_classifications_url, method: 'post') do %>
+
+            <%= select_tag(:team_id, options_from_collection_for_select(Team.all, :id, :name)) %>
+
+            <%= select_tag(:boat_id, options_from_collection_for_select(Boat.all, :id, :name)) %>
+
+            <%= hidden_field_tag(:heat_id, heat.id) %>
+
+            <%= submit_tag "Create", :class => "btn btn-success"  %>
+          <% end %>
+        </td>
+        <% end %>
+    </tr>
+
+
+
+
+  <% end %>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,37 @@
+<h1>Boats</h1>
+
+<p><%= link_to 'Add a New Boat', new_boat_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <% @heats.each do |heat| %>
+      <th><%=heat.name%></th>
+      <% end %>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @boats.each do |boat| %>
+    <tr>
+      <td><%= boat.name %></td>
+      <% @heats.each do |heat| %>
+        <td>
+          <% boat.team_classifications.where("heat_id = #{heat.id}").each do |team_classification| %>
+          <%= team_classification.team.name %>
+        </td>
+      <% end %>
+    <% end %>
+      <td><%= link_to 'Show', boat_url(boat) %></td>
+      <td><%= link_to 'Edit', edit_boat_url(boat) %></td>
+      <td><%= link_to 'Destroy', boat_url(boat), method: 'delete', data: { confirm: "Do you really want to delete this boat?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

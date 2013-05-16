@@ -1,0 +1,60 @@
+<h1>Edit en destroy alleen voor admins</h1>
+<h1>Clubs ook klikbaar?</h1>
+<h1>Teams colspan is moeilijk</h1>
+<h1></h1>
+<p><%= link_to 'Add a New Boat Type', new_boat_type_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Teams</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @boat_types.each do |boat_type| %>
+    <tr>
+      <td><%= boat_type.name %></td>
+      <td><%= link_to 'Show', boat_type_url(boat_type) %></td>
+      <td><%= link_to 'Edit', edit_boat_type_url(boat_type) %></td>
+      <td><%= link_to 'Destroy', boat_type_url(boat_type), method: 'delete', data: { confirm: "Do you really want to delete this boat_type?" } %></td>
+      <% boat_type.teams.each do |team| %>
+      <td><%= link_to team.name, team_url(team) %>(<%= team.club.name %>)</td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th># Teams</th>
+      <th># Expected Results</th>
+      <th># Results</th>
+      <th></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @boat_types.each do |boat_type| %>
+    <tr>
+      <td><%= boat_type.name %></td>
+      <td><%= boat_type.teams.count %></td>
+      <td><%= (boat_type.teams.map{|x| x.team_classifications.count}).sum %></td>
+      <td><%= (boat_type.teams.map{|x| x.results.count}).sum %></td>
+      <td><%= link_to "Calculate Rankings", calculaterank_url(boat_type.id), :class => 'btn btn-success' if (boat_type.teams.map{|x| x.team_classifications.count}).sum == (boat_type.teams.map{|x| x.results.count}).sum %><%= link_to "Calculate Rankings", calculaterank_url(boat_type.id), :class => 'btn btn-danger' if (boat_type.teams.map{|x| x.team_classifications.count}).sum != (boat_type.teams.map{|x| x.results.count}).sum %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

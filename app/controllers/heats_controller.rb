@@ -1,0 +1,47 @@
+class HeatsController < ApplicationController
+
+  def index
+    @heats = Heat.all
+  end
+
+  def show
+    @heat = Heat.find_by_id(params[:id])
+  end
+
+  def new
+    @heat = Heat.new
+  end
+
+  def create
+    @heat = Heat.new
+    @heat.name = params[:name]
+
+    if @heat.save
+            redirect_to heats_url
+          else
+      render 'new'
+    end
+  end
+
+  def edit
+    @heats = Heat.all
+    @heat = Heat.find_by_id(params[:id])
+  end
+
+  def update
+    @heat = Heat.find_by_id(params[:id])
+    @heat.name = params[:name]
+
+    if @heat.save
+            redirect_to heats_url
+          else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @heat = Heat.find_by_id(params[:id])
+    @heat.destroy
+        redirect_to heats_url
+      end
+end

@@ -1,0 +1,26 @@
+<h1>New Rower</h1>
+
+
+<%= form_tag(rowers_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+    <div>
+    <%= label_tag :age %><br />
+    <%= text_field_tag :age %>
+  </div>
+
+    <div>
+    <%= label_tag :club_id %><br />
+    <%= text_field_tag :club_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Create Rower" %>
+  </div>
+<% end %>

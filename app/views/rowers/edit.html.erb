@@ -1,0 +1,26 @@
+<h1>Editing Rower #<%= @rower.id %></h1>
+
+
+<%= form_tag(rower_url(@rower), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @rower.name %>
+  </div>
+
+  <div>
+    <%= label_tag :age %><br />
+    <%= text_field_tag :age, @rower.age %>
+  </div>
+
+  <div>
+    <%= label_tag :club_id %><br />
+    <%= text_field_tag :club_id, @rower.club_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Rower" %>
+  </div>
+
+<% end %>

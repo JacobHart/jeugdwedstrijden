@@ -1,0 +1,26 @@
+<h1>Editing Team Classification #<%= @team_classification.id %></h1>
+
+
+<%= form_tag(team_classification_url(@team_classification), method: 'put') do %>
+
+  <div>
+    <%= label_tag :team_id %><br />
+    <%= text_field_tag :team_id, @team_classification.team_id %>
+  </div>
+
+  <div>
+    <%= label_tag :heat_id %><br />
+    <%= text_field_tag :heat_id, @team_classification.heat_id %>
+  </div>
+
+  <div>
+    <%= label_tag :boat_id %><br />
+    <%= text_field_tag :boat_id, @team_classification.boat_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Team Classification" %>
+  </div>
+
+<% end %>

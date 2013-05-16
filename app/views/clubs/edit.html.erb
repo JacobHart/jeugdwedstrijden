@@ -1,0 +1,173 @@
+<!-- I want a admin page for this later -->
+<div class="row">
+  <div class="span12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Editing <%= @club.name %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= form_tag(club_url(@club), method: 'put') do %>
+
+            <%= label_tag :name %><br />
+            <%= text_field_tag :name, @club.name %>
+
+            <%= submit_tag "Update Club Name", :class => "btn btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span5">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Step 1) New Rower</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= form_tag(rowers_url, method: 'post') do %>
+
+            <%# 4.times do %>
+
+            <%= label_tag :name %><br />
+            <%= text_field_tag :name %>
+
+            <%= label_tag :age %><br />
+            <%= text_field_tag :age %><br>
+
+            <%# end %>
+
+
+            <%= hidden_field_tag :club_id, @club.id %>
+
+            <%= submit_tag "Create Rower", :class => "btn btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @club.rowers.each_with_index do |rower, index| %>
+      <tr>
+        <td><%= index +1 %>
+        <td><%= rower.name %></td>
+        <td><%= link_to 'Details', rower_url(rower) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="span7">
+        <% unless @club.rowers.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Step 2) New Team</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+
+            <%= form_tag(teams_url, method: 'post') do %>
+
+
+            <%= label_tag :name %><br />
+            <%= text_field_tag :name %>
+
+            <%= label_tag :boat_type_id %><br />
+            <%= select_tag :boat_type_id, options_from_collection_for_select(BoatType.all, :id, :name) %>
+
+            <%= hidden_field_tag :club_id, @club.id %>
+
+            <%= submit_tag "Create Team", :class => "btn btn-success" %>
+
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+
+    <% unless @club.teams.blank? %>
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Step 3) Add rowers to team</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= form_tag(rower_classifications_url, method: 'post') do %>
+
+              <%= label_tag :team_id %><br />
+              <%= select_tag(:team_id, options_from_collection_for_select(@club.teams.all, :id, :name)) %>
+
+              <% 4.times do |i| %>
+                <%= label_tag :rower_id %><br />
+                <%= select_tag("rower_id_" + i.to_s, options_from_collection_for_select(@club.rowers.all, :id, :name), :include_blank => true) %>
+              <% end %>
+
+              <%= submit_tag "Add to team", :class => "btn btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+     </tbody>
+    </table>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Heats</th>
+          <th>Teams</th>
+          <th colspan="4">Rowers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @club.teams.each do |team| %>
+          <tr>
+            <td><% team.heats.each do |heat| %>
+              <%= link_to heat.name, heat_url(heat) %>
+            <% end %></td>
+            <td><%= link_to team.name, team_url(team) %></td>
+            <td>
+              <% team.rowers.each do |rower| %>
+                <%= rower.name %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

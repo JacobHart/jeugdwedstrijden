@@ -1,0 +1,65 @@
+<h1>Add Results</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Heat</th>
+      <th>Lane 1</th>
+      <th>Lane 2</th>
+      <th>Lane 3</th>
+      <th>Lane 4</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @heats.each do |heat| %>
+    <tr>
+      <td><%= heat.name %></td>
+
+        <% heat.team_classifications.each do |team_classification|%>
+          <td>
+            <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name}) #{team_classification.boat.name}"%>
+
+              <% if Result.exists?(:heat_id => team_classification.heat.id, :team_id => team_classification.team.id) %>
+
+                <%= form_tag(result_url(Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id)), method: 'put') do %>
+
+                  <%= label_tag :laptime %>
+                  <%= text_field_tag :laptime, Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %>
+                  <%= hidden_field_tag(:team_id, team_classification.team.id) %>
+                  <%= hidden_field_tag(:heat_id, team_classification.heat.id) %>
+
+                  <br>
+                <%= submit_tag "Update Result" , :class => "btn btn-warning" %>
+                <%= link_to 'Destroy', result_url(Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id)), method: 'delete', data: { confirm: "Do you really want to delete this result?" }, :class => "btn btn-danger"  %>
+
+                <% end %>
+
+              <% else %>
+
+                <%= form_tag(results_url, method: 'post') do %>
+
+                  <%= label_tag :laptime %>
+                  <%= text_field_tag :laptime %>
+                  <%= hidden_field_tag(:team_id, team_classification.team.id) %>
+                  <%= hidden_field_tag(:heat_id, team_classification.heat.id) %>
+
+                  <br>
+                <%= submit_tag "Create Result", :class => "btn btn-success" %>
+              <% end %>
+            <% end %>
+          </td>
+        <% end %>
+
+        <% (4-heat.teams.each.count).times do%>
+        <td></td>
+        <% end %>
+
+
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+

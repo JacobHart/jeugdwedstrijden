@@ -1,0 +1,84 @@
+<h1>Results</h1>
+
+<p><%= link_to 'Add a New Result', new_result_url %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Laptime</th>
+      <th>Team</th>
+      <th>Heat</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @results.each do |result| %>
+    <tr>
+      <td><%= result.rank %></td>
+      <td><%= result.laptime %></td>
+      <td><%= result.team_id %></td>
+      <td><%= result.heat_id %></td>
+
+      <td><%= link_to 'Show', result_url(result) %></td>
+      <td><%= link_to 'Edit', edit_result_url(result) %></td>
+      <td><%= link_to 'Destroy', result_url(result), method: 'delete', data: { confirm: "Do you really want to delete this result?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h1>Results</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Heat</th>
+      <th>Lane 1</th>
+      <th>Lane 2</th>
+      <th>Lane 3</th>
+      <th>Lane 4</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @heats.each do |heat| %>
+    <tr>
+      <td><%= heat.name %></td>
+
+        <% heat.team_classifications.each do |team_classification|%>
+          <td>
+            <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name}) #{team_classification.boat.name}"%>
+
+            <% if Result.exists?(:heat_id => team_classification.heat.id, :team_id => team_classification.team.id) %>
+
+              <p>
+              Laptime =
+              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %>
+              </p>
+
+              <p>
+              Rank =
+              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).rank %>
+              </p>
+
+            <% else %>
+              <p>Pending</p>
+            <% end %>
+          </td>
+        <% end %>
+
+        <% (4-heat.teams.each.count).times do%>
+        <td></td>
+        <% end %>
+
+
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>

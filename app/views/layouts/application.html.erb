@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ZzvJeugdwedstrijden</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+
+<%#= 'active' if action_name == 'index' && controller.class.name == 'ResultsController' %>">
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">ZZV Jeugdwedstrijden</a>
+    <ul class="nav">
+    <li class="<%= 'active' if controller.class.name == 'BoatsController' %>"><%= link_to 'boats', boats_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'BoatTypesController' %>"><%= link_to 'boat_types', boat_types_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'ClubsController' %>"><%= link_to 'clubs', clubs_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'HeatsController' %>"><%= link_to 'heats', heats_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'results', results_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'RowersController' %>"><%= link_to 'rowers', rowers_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'RowerClassificationsController' %>"><%= link_to 'rower_classifications',rower_classifications_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'TeamClassificationsController' %>"><%= link_to 'team_classifications', team_classifications_url %></li>
+    <li class="divider-vertical"></li>
+    <li class="<%= 'active' if controller.class.name == 'TeamsController' %>"><%= link_to 'teams', teams_url %></li>
+    </ul>
+  </div>
+</div>
+
+
+
+  <%= yield %>
+
+</div>
+
+</body>
+</html>

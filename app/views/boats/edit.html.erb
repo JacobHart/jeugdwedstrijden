@@ -1,0 +1,16 @@
+<h1>Editing Boat #<%= @boat.id %></h1>
+
+
+<%= form_tag(boat_url(@boat), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @boat.name %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Boat" %>
+  </div>
+
+<% end %>
