@@ -26,13 +26,26 @@
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'results', results_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'RowersController' %>"><%= link_to 'rowers', rowers_url %></li>
+    <li class="<%= 'active' if controller.class.name == 'RowersController' %>"><%= link_to 'rowers', rowers_url %>""></li>
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'RowerClassificationsController' %>"><%= link_to 'rower_classifications',rower_classifications_url %></li>
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'TeamClassificationsController' %>"><%= link_to 'team_classifications', team_classifications_url %></li>
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'TeamsController' %>"><%= link_to 'teams', teams_url %></li>
+    <% if signed_in? %>
+    <li class="<%= 'active' if controller.class.name == 'AdminController' %>"><%= link_to 'Admin Pages', admins_url %></li>
+    <% else %>
+
+<%= form_tag sessions_url, :class => "navbar-form pull-right" do %>
+  <%= hidden_field_tag :name, "admin" %>
+  <%= password_field_tag :password, "" ,:class => "span2" %>
+
+<%= submit_tag "Sign In", :class => "btn btn-primary" %>
+<% end %>
+    <% end %>
+
+
     </ul>
   </div>
 </div>

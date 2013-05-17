@@ -1,10 +1,6 @@
 # Ik wil voor iedreen:
 # team (index show) Rowers (index show) Clubs (index en show) Boattypes (catogory)(index en show)heats(index (show??))results in boatttypes
 
-# Vragen:
-# How to test wether all the functionality works correctly?
-# Log in using html_basic_authenticate_with   or generating a table with one entry??
-
 # opmaak:
 # results bij opsturen result veranderd new al in update  alleen nog andere kleur knop!! edit met speciale kleur in css!
 # bootstrap twitter
@@ -14,8 +10,6 @@
 # Twitter bootstrap knopjes voor admins, duidelijk, rood oranje groen
 # heats/show opmaak bij verschillende grote boten.. viertje tegen tweetje?
 
-# te moeilijk: (makkelijker oplossing meerdere input velden)
-# club/edit   new rowerclassification => rowers uit team laten zien
 # liefste hele regel results versturen!
 
 # extra:
@@ -35,22 +29,45 @@
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 #4 team/show    results   en alles
 #3 team show maken!
-# menu en algemene indeling site
 # Later bootjes nog boat_type geven!
 #5 rower show => results!
 # club show gesorteerd op heat, gaat nu toevallig goed
 # validates
 
-# UITDAGING
-# Rank uitrekenen op basis laptime en boat_type
+# wat te doen bij did not fisish   weghalen of maximale straf geven    hoe noteren bij weghalen
+# wel link naar teams houden voor als er iets opgezocht moet worden, rowers zijn minder belangrijk.. Maar wel leuk anders doe ik er niets mee.. Of op club pagina wel!
 
 # Controleren
-# team in multiple heats gaat goed?
 # controleren of je club.id hebt omgeschreven in .name
 
 # Notitie
 # Gekozen geen lanes... Wil dat alle boten zo dicht mogelijk bij de kant varen. geen lege plekken.
 ZzvJeugdwedstrijden::Application.routes.draw do
+
+  root to: 'sessions#new'
+
+  get '/sessions/new' => 'sessions#new', as: 'new_session'
+  post '/sessions' => 'sessions#create', as: 'sessions'
+  delete '/sessions' => 'sessions#destroy'
+
+
+  # Routes for the Admin resource:
+  # CREATE
+  get '/admins/new', controller: 'admins', action: 'new', as: 'new_admin'
+  post '/admins', controller: 'admins', action: 'create'
+
+  # READ
+  get '/admins', controller: 'admins', action: 'index', as: 'admins'
+  get '/admins/:id', controller: 'admins', action: 'show', as: 'admin'
+
+  # UPDATE
+  get '/admins/:id/edit', controller: 'admins', action: 'edit', as: 'edit_admin'
+  put '/admins/:id', controller: 'admins', action: 'update'
+
+  # DELETE
+  delete '/admins/:id', controller: 'admins', action: 'destroy'
+  #------------------------------
+
   # Routes for the Team_classification resource:
   # CREATE
   get '/team_classifications/new', controller: 'team_classifications', action: 'new', as: 'new_team_classification'

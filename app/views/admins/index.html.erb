@@ -1,0 +1,30 @@
+<h1>Admins</h1>
+
+<p><%= link_to 'Add a New Admin', new_admin_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Password digest</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.name %></td>
+      <td><%= admin.password_digest %></td>
+  
+      <td><%= link_to 'Show', admin_url(admin) %></td>
+      <td><%= link_to 'Edit', edit_admin_url(admin) %></td>
+      <td><%= link_to 'Destroy', admin_url(admin), method: 'delete', data: { confirm: "Do you really want to delete this admin?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

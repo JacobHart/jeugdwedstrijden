@@ -1,0 +1,21 @@
+<h1>Editing Admin #<%= @admin.id %></h1>
+
+
+<%= form_tag(admin_url(@admin), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @admin.name %>
+  </div>
+
+  <div>
+    <%= label_tag :password_digest %><br />
+    <%= text_field_tag :password_digest, @admin.password_digest %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Admin" %>
+  </div>
+
+<% end %>
