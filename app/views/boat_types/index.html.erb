@@ -33,9 +33,11 @@
 
 
 <table class="table table-striped">
+  <caption><h3>Lege boattypes => if teams.count = 0 dan number of team en calculate rank weghalen</h3></caption>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Status</th>
       <th># Teams</th>
       <th># Expected Results</th>
       <th># Results</th>
@@ -48,6 +50,19 @@
   <% @boat_types.each do |boat_type| %>
     <tr>
       <td><%= boat_type.name %></td>
+        <td>
+          <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 0 %>
+            <span class="label label-warning">No teams are curently in this category</span>
+          <% elsif (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 1 %>
+            <span class="label label-success">All the teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times.</span>
+          <% else %>
+            <span class="label label-important">Some are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.</span>
+
+            <p><% boat_type.teams.each do |team| %>
+            <%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>)
+            <% end %></p>
+          <% end %>
+        </td>
       <td><%= boat_type.teams.count %></td>
       <td><%= (boat_type.teams.map{|x| x.team_classifications.count}).sum %></td>
       <td><%= (boat_type.teams.map{|x| x.results.count}).sum %></td>
@@ -56,5 +71,3 @@
   <% end %>
   </tbody>
 </table>
-
-
