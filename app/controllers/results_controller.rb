@@ -31,6 +31,7 @@ class ResultsController < ApplicationController
   end
 
   def edit
+    @boat_types = BoatType.all
     @result = Result.find_by_id(params[:id])
     @heats = Heat.all
   end

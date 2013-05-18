@@ -1,15 +1,9 @@
-<h1>Edit en destroy alleen voor admins</h1>
-<h1>Clubs ook klikbaar?</h1>
-<h1>Teams colspan is moeilijk</h1>
 <h1></h1>
-<p><%= link_to 'Add a New Boat Type', new_boat_type_url %></p>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
-      <th></th>
       <th></th>
       <th colspan="<%= (@boat_types.map{|x| x.teams.count}).max %>">Teams</th>
 
@@ -20,11 +14,9 @@
   <% @boat_types.each do |boat_type| %>
     <tr>
       <td><%= boat_type.name %></td>
-      <td><%= link_to 'Show', boat_type_url(boat_type) %></td>
-      <td><%= link_to 'Edit', edit_boat_type_url(boat_type) %></td>
-      <td><%= link_to 'Destroy', boat_type_url(boat_type), method: 'delete', data: { confirm: "Do you really want to delete this boat_type?" } %></td>
+      <td><%= link_to 'Show', boat_type_url(boat_type), :class => "btn btn-primary" %></td>
       <td><% boat_type.teams.each do |team| %>
-      <%= link_to team.name, team_url(team) %>(<%= team.club.name %>)
+      <%= link_to team.name, team_url(team) %>(<%= link_to team.club.name, club_url(team.club.id) %>)
       <% end %></td>
     </tr>
   <% end %>

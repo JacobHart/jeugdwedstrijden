@@ -24,27 +24,26 @@
             <%= link_to rower.name, rower_url(rower) %>
           <% end %>
         </td>
+        <% if team.results.present? %>
         <% team.results.each do |result| %>
-          <td><%= result.laptime %></td>
+          <td>
+            <%= result.laptime %>
+          </td>
 
         <% end %>
-          <%# form_tag(result_url(result), method: 'put') do %>
 
-          <%# hidden_field_tag :team_id, team.id%>
-
-          <%# hidden_field_tag :heat_id, TeamClassification.#ind_by_team_id_and_heat_id(team.id, result.heat.id).heat.id%>
-
-          <%# hidden_field_tag :laptime, result.laptime%>
-          <%# hidden_field_tag :rank, "1" %>
-          <%# submit_tag "Update", :class => "btn btn-warning"  %>
-          <%#end %>
-          <%#end %>
-        <td>
-          <%= team.results.sum(:laptime) %>
-        </td>
-        <td>
-          <%= team.results.first.rank %>
-        </td>
+          <td>
+            <%= team.results.sum(:laptime) %>
+          </td>
+          <td>
+            <%= team.results.first.rank %>
+          </td>
+        <% else %>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
       <tr>

@@ -21,7 +21,7 @@
       <td><%= boat.name %></td>
       <% @heats.each do |heat| %>
         <td>
-          <% boat.team_classifications.where("heat_id = #{heat.id}").each do |team_classification| %>
+          <% boat.team_classifications.where("heat_id == #{heat.id}").each do |team_classification| %>
           <%= team_classification.team.name %>
         </td>
       <% end %>

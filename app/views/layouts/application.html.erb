@@ -9,14 +9,11 @@
 <body>
 
 
+
 <div class="container">
 
-<%#= 'active' if action_name == 'index' && controller.class.name == 'ResultsController' %>
 
-
-
-
-<div class="navbar navbar-fixed-top navbar-inverse">
+<!-- <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <a class="brand" href="#">ZZV Jeugdwedstrijden</a>
     <ul class="nav">
@@ -51,36 +48,27 @@
 
     </ul>
   </div>
-</div>
+</div> -->
 
 
 
-  <%= yield %>
+<%#= 'active' if action_name == 'index' && controller.class.name == 'ResultsController' %>
 
-<% if signed_in? %>
-<div class="navbar navbar-fixed-bottom navbar-inverse">
+<div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <a class="brand" href="#">Admin Menu</a>
+    <a class="brand" href="#">ZZV Jeugdwedstrijden</a>
     <ul class="nav">
-    <li class="<%= 'active' if controller.class.name == 'BoatsController' %>"><%= link_to 'boats', boats_url %></li>
+    <li class="<%= 'active' if controller.class.name == '' %>"><%= link_to 'About', root_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'BoatTypesController' %>"><%= link_to 'boat_types', boat_types_url %></li>
+    <li class="<%= 'active' if controller.class.name == 'BoatTypesController' %>"><%= link_to 'Categories', boat_types_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'ClubsController' %>"><%= link_to 'clubs', clubs_url %></li>
+    <li class="<%= 'active' if controller.class.name == 'ClubsController' %>"><%= link_to 'Draw/Club', clubs_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'HeatsController' %>"><%= link_to 'heats', heats_url %></li>
+    <li class="<%= 'active' if controller.class.name == 'HeatsController' %>"><%= link_to 'Draw/Heats', heats_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'results', results_url %></li>
+    <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'Results', results_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'RowersController' %>"><%= link_to 'rowers', rowers_url %></li>
-    <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'RowerClassificationsController' %>"><%= link_to 'rower_classifications',rower_classifications_url %></li>
-    <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'TeamClassificationsController' %>"><%= link_to 'team_classifications', team_classifications_url %></li>
-    <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'TeamsController' %>"><%= link_to 'teams', teams_url %></li>
     <% if signed_in? %>
-    <li class="<%= 'active' if controller.class.name == 'AdminsController' %>"><%= link_to 'Admin Pages', admins_url %></li>
     <li><%= link_to "Sign Out", sessions_url, method: 'delete' %></li>
     <% else %>
 
@@ -88,14 +76,45 @@
         <%= hidden_field_tag :name, "admin" %>
         <%= password_field_tag :password, "" ,:class => "span2" %>
 
-      <%= submit_tag "Admin Sign In", :class => "btn btn-primary" %>
+      <%= submit_tag "Admin sign in", :class => "btn btn-primary" %>
       <% end %>
     <% end %>
 
     </ul>
+    <% if signed_in? %>
+    <ul class="nav">
+      <li class="dropdown">
+      <a href="#"
+          class="dropdown-toggle"
+          data-toggle="dropdown">
+          Admin Pages
+          <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="nav-header">Administration</li>
+      <li class="<%= 'active' if controller.class.name == 'ClubsController' %>"><%= link_to 'clubs', clubs_url %></li>
+      <li class="divider"></li>
+      <li class="nav-header">Info</li>
+      <li class="<%= 'active' if controller.class.name == 'BoatsController' %>"><%= link_to 'Boat Classification', boats_url(1) %></li>
+      <li class="nav-header">Race Related</li>
+      <li class="<%= 'active' if controller.class.name == 'HeatsController' %>"><%= link_to 'Change Heat', edit_heat_url(1) %></li>
+      <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'Add Results', new_result_url %></li>
+      <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'Calculate Ranking', edit_result_url(1) %></li>
+    </ul>
+    <% end %>
+  </li>
+</ul>
   </div>
 </div>
-<% end %>
+
+
+
+
+
+
+  <%= yield %>
+
+
 </div>
 </body>
 </html>

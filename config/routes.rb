@@ -1,10 +1,21 @@
+# Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
+# Alles wat nu naar team/1 is doorgelinkt doorlinken naar teams?!
 # ik denk dat ik de roeiers maar moet verwijderen
+#  moet nog controle maken voor boot maar 1 keer per heat gebruiken.. anders wordt boot pagina raar
+# Links in menu ook afhankelijk van action zichtbaar?
+# Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging
+# Hoe werkt calculate rank met een leeg veld?!
+# Lege catogorien weghalen
+
+
+# boattypes show calculate rank button weg?!
+
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 
-# Ik wil voor iedreen:
-# team (index show) Rowers (index show) Clubs (index en show) Boattypes (catogory)(index en show)heats(index (show??))results in boatttypes
+# Gaat rank uitrekenen bij meerdere heats netjes?   wil je wel beide een rank geven? => ja! => maar er maar 1 weergeven!!!!! MOOOOOOOOOOOOI :)
+
 
 # opmaak:
 # responsive
@@ -27,10 +38,10 @@
 #2 Nieuwe invoer gegevens op admin pagina? of bij clubs new
 #  bij versturen forms in algemeen goed doorlinken!
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
-#4 team/show    results   en alles
-#3 team show maken!
+
+
 # Later bootjes nog boat_type geven!
-#5 rower show => results!
+
 #!!!!!!! club show gesorteerd op heat, gaat nu toevallig goed
 # validates
 
@@ -46,7 +57,7 @@
 # Gekozen geen lanes... Wil dat alle boten zo dicht mogelijk bij de kant varen. geen lege plekken.
 ZzvJeugdwedstrijden::Application.routes.draw do
 
-  root to: 'sessions#new'
+  root :to => 'sessions#new'
 
   get '/sessions/new' => 'sessions#new', as: 'new_session'
   post '/sessions' => 'sessions#create', as: 'sessions'
