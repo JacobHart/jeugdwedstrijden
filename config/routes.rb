@@ -36,8 +36,7 @@
 
 # notices maken! login, warning zoals onder, problemen  drama en verdriet.
 # !!! Al gedaan bij results   tabel omschrijven in notice! <= Bij heats edit en results en heats index waarschuuwing boven aan net als boattypes.
-#!!!!! wat te doen bij did not fisish   weghalen of maximale straf geven    hoe noteren bij weghalen
-# weghalen en waarschuwen dat opnieuw ingedeeld moet worden. In waarschuwing ook voorstellen maximale tijdstraf te geven.
+
 # wel link naar teams houden voor als er iets opgezocht moet worden, rowers zijn minder belangrijk.. Maar wel leuk anders doe ik er niets mee.. Of op club pagina wel!
 
 # Controleren
