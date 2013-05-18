@@ -2,6 +2,8 @@ class HeatsController < ApplicationController
 
   def index
     @heats = Heat.all
+    @boat_types = BoatType.all
+    @results = Result.all
   end
 
   def show

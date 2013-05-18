@@ -11,7 +11,7 @@
       <th></th>
       <th></th>
       <th></th>
-      <th>Teams</th>
+      <th colspan="<%= (@boat_types.map{|x| x.teams.count}).max %>">Teams</th>
 
     </tr>
   </thead>
@@ -23,9 +23,9 @@
       <td><%= link_to 'Show', boat_type_url(boat_type) %></td>
       <td><%= link_to 'Edit', edit_boat_type_url(boat_type) %></td>
       <td><%= link_to 'Destroy', boat_type_url(boat_type), method: 'delete', data: { confirm: "Do you really want to delete this boat_type?" } %></td>
-      <% boat_type.teams.each do |team| %>
-      <td><%= link_to team.name, team_url(team) %>(<%= team.club.name %>)</td>
-      <% end %>
+      <td><% boat_type.teams.each do |team| %>
+      <%= link_to team.name, team_url(team) %>(<%= team.club.name %>)
+      <% end %></td>
     </tr>
   <% end %>
   </tbody>

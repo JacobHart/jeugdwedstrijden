@@ -47,6 +47,7 @@
 
                   <br>
                 <%= submit_tag "Create Result", :class => "btn btn-success" %>
+                <%= link_to 'D.N.F.', team_classification_url(team_classification), method: 'delete', data: { confirm: "This will remove this team from the list. It will be required to reschedule a heat for this team. Consider adding a maximum time penalty instead. Press ok to remove team."}, :class => "btn btn-danger"  %>
               <% end %>
             <% end %>
           </td>

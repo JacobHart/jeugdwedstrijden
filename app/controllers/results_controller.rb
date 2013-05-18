@@ -3,6 +3,7 @@ class ResultsController < ApplicationController
   def index
     @results = Result.all
     @heats = Heat.all
+    @boat_types = BoatType.all
   end
 
   def show

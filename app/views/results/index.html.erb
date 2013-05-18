@@ -5,6 +5,30 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Boat_type</th>
+      <th>Remark</th>
+      <th>Teams (# heats)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boat_types.each do |boat_type| %>
+      <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count > 1 %>
+        <tr>
+          <td><%= boat_type.name %></td>
+          <td><span class="label label-important">Some are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.</span></td>
+          <% boat_type.teams.each do |team| %>
+            <td><%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>)</td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
       <th>Rank</th>
       <th>Laptime</th>
       <th>Team</th>
@@ -32,7 +56,7 @@
   </tbody>
 </table>
 
-<h1>Results</h1>
+<h1>Boatname wordt vervangen door Results als die er zijn</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -52,22 +76,20 @@
 
         <% heat.team_classifications.each do |team_classification|%>
           <td>
-            <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name}) #{team_classification.boat.name}"%>
+            <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name})"%>
 
             <% if Result.exists?(:heat_id => team_classification.heat.id, :team_id => team_classification.team.id) %>
 
-              <p>
+              <p class="text-info"><strong>
               Laptime =
-              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %>
-              </p>
+              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %><br>
 
-              <p>
               Rank =
               <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).rank %>
-              </p>
+              </strong></p>
 
             <% else %>
-              <p>Pending</p>
+              <p><%= team_classification.boat.name %><p>
             <% end %>
           </td>
         <% end %>
@@ -75,8 +97,9 @@
         <% (4-heat.teams.each.count).times do%>
         <td></td>
         <% end %>
-
-
+        <td>
+          <%= link_to 'Show all rowers', heat_url(heat), :class => "btn btn-primary"  %>
+        </td>
     </tr>
 
   <% end %>

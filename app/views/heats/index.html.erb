@@ -2,6 +2,7 @@
 
 <p><%= link_to 'Add a New Heat', new_heat_url %></p>
 
+<h1>Boatname wordt vervangen door Results als die er zijn</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -20,20 +21,37 @@
       <td><%= heat.name %></td>
 
         <% heat.team_classifications.each do |team_classification|%>
-        <td>
-          <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name})"%><br>
-          <%= team_classification.boat.name %>
-        </td>
+          <td>
+            <%= "#{team_classification.team.name} (#{team_classification.team.rowers[0].name})"%>
 
+            <% if Result.exists?(:heat_id => team_classification.heat.id, :team_id => team_classification.team.id) %>
+
+              <p class="text-info"><strong>
+              Laptime =
+              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %>
+              </strong></p>
+
+              <p class="text-info"><strong>
+              Rank =
+              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).rank %>
+              </strong></p>
+
+            <% else %>
+              <p class="text-info"><strong><%= team_classification.boat.name %></strong><p>
+            <% end %>
+          </td>
         <% end %>
 
         <% (4-heat.teams.each.count).times do%>
         <td></td>
         <% end %>
-
-      <td><%= link_to 'Show all rowers', heat_url(heat), :class => "btn btn-success"  %></td>
+        <td>
+          <%= link_to 'Show all rowers', heat_url(heat), :class => "btn btn-primary"  %>
+        </td>
     </tr>
+
   <% end %>
   </tbody>
 </table>
+
 

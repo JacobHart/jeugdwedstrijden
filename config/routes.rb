@@ -1,18 +1,17 @@
-# sign out link maken!!
+# ik denk dat ik de roeiers maar moet verwijderen
+# admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
+
+# Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 
 # Ik wil voor iedreen:
 # team (index show) Rowers (index show) Clubs (index en show) Boattypes (catogory)(index en show)heats(index (show??))results in boatttypes
 
 # opmaak:
-# results bij opsturen result veranderd new al in update  alleen nog andere kleur knop!! edit met speciale kleur in css!
-# bootstrap twitter
 # responsive
 # alle links controleren, sterkte!
-# Witte achtergrond, zwarte text, blauwe links, meer zzv kan het niet worden!
-# Twitter bootstrap knopjes voor admins, duidelijk, rood oranje groen
 # heats/show opmaak bij verschillende grote boten.. viertje tegen tweetje?
 
-# liefste hele regel results versturen!
+# liefste hele regel results versturen!   naja bij extra tijd!
 
 # extra:
 # Boatid nog vaker vermelden! rowers page bijv!
@@ -26,17 +25,19 @@
 # Also club/edit  rowerslists and rowers e.d. editten!
 # invoeren boten, boat_ids e.d.apparte pagina admin
 #2 Nieuwe invoer gegevens op admin pagina? of bij clubs new
-#1 heats/index afkijken van results en edit    met <% heat.team_classifications.each do |team_classification|%>
 #  bij versturen forms in algemeen goed doorlinken!
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 #4 team/show    results   en alles
 #3 team show maken!
 # Later bootjes nog boat_type geven!
 #5 rower show => results!
-# club show gesorteerd op heat, gaat nu toevallig goed
+#!!!!!!! club show gesorteerd op heat, gaat nu toevallig goed
 # validates
 
-# wat te doen bij did not fisish   weghalen of maximale straf geven    hoe noteren bij weghalen
+# notices maken! login, warning zoals onder, problemen  drama en verdriet.
+# !!! Al gedaan bij results   tabel omschrijven in notice! <= Bij heats edit en results en heats index waarschuuwing boven aan net als boattypes.
+#!!!!! wat te doen bij did not fisish   weghalen of maximale straf geven    hoe noteren bij weghalen
+# weghalen en waarschuwen dat opnieuw ingedeeld moet worden. In waarschuwing ook voorstellen maximale tijdstraf te geven.
 # wel link naar teams houden voor als er iets opgezocht moet worden, rowers zijn minder belangrijk.. Maar wel leuk anders doe ik er niets mee.. Of op club pagina wel!
 
 # Controleren
