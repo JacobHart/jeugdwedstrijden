@@ -1,6 +1,6 @@
 # ik denk dat ik de roeiers maar moet verwijderen
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
-
+# !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 
 # Ik wil voor iedreen:

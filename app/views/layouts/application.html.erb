@@ -8,9 +8,10 @@
 </head>
 <body>
 
+
 <div class="container">
 
-<%#= 'active' if action_name == 'index' && controller.class.name == 'ResultsController' %>">
+<%#= 'active' if action_name == 'index' && controller.class.name == 'ResultsController' %>
 
 <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
@@ -26,7 +27,7 @@
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'results', results_url %></li>
     <li class="divider-vertical"></li>
-    <li class="<%= 'active' if controller.class.name == 'RowersController' %>"><%= link_to 'rowers', rowers_url %>""></li>
+    <li class="<%= 'active' if controller.class.name == 'RowersController' %>"><%= link_to 'rowers', rowers_url %></li>
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'RowerClassificationsController' %>"><%= link_to 'rower_classifications',rower_classifications_url %></li>
     <li class="divider-vertical"></li>
@@ -34,6 +35,18 @@
     <li class="divider-vertical"></li>
     <li class="<%= 'active' if controller.class.name == 'TeamsController' %>"><%= link_to 'teams', teams_url %></li>
     <% if signed_in? %>
+
+    <li class="dropdown">
+        <li class="dropdown-toggle" data-toggle="dropdown" href="#"><a>Admin Pages</a></li>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+              <li class="<%= 'active' if controller.class.name == 'TeamClassificationsController' %>"><%= link_to 'team_classifications', team_classifications_url %></li>
+              <li class="divider"></li>
+              <li class="<%= 'active' if controller.class.name == 'TeamsController' %>"><%= link_to 'teams', teams_url %></li>
+        </ul>
+    </li>
+
+
     <li class="<%= 'active' if controller.class.name == 'AdminsController' %>"><%= link_to 'Admin Pages', admins_url %></li>
     <li><%= link_to "Sign Out", sessions_url, method: 'delete' %></li>
     <% else %>
@@ -51,10 +64,10 @@
 </div>
 
 
-
   <%= yield %>
 
-</div>
+
+
 
 </body>
 </html>
