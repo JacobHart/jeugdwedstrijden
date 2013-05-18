@@ -1,3 +1,5 @@
+# sign out link maken!!
+
 # Ik wil voor iedreen:
 # team (index show) Rowers (index show) Clubs (index en show) Boattypes (catogory)(index en show)heats(index (show??))results in boatttypes
 

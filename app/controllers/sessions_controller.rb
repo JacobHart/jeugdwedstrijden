@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    a = Admin.find_by_name(params[:name])
+    admin = Admin.find_by_name(params[:name])
 
-    if a.present? && a.authenticate(params[:password])
-      session[:admin_id] = a.id
+    if admin.present? && admin.authenticate(params[:password])
+      session[:admin_id] = admin.id
       redirect_to admins_url
     else
-      redirect_to new_session_url
+      redirect_to admins_url
     end
   end
 

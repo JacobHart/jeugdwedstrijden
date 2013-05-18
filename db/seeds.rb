@@ -11,6 +11,13 @@ Team.destroy_all
 # heb nog geen multiple heats bij teams! Kan het wel :)
 # club id nog matchen met teams   later..
 # 4 viertjes = 16 rowers
+
+a = Admin.new
+  a.name = "admin"
+  a.password = "a"
+  a.save
+
+
 16.times do |index|
   r = Rower.new
   r.name = ("Rower " + index.to_s)

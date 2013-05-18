@@ -13,10 +13,8 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.new
-    @admin.name = params[:name]
-    @admin.password_digest = params[:password_digest]
-    
+    @admin = Admin.new(params[:admin])
+
     if @admin.save
             redirect_to admins_url
           else
@@ -32,7 +30,7 @@ class AdminsController < ApplicationController
     @admin = Admin.find_by_id(params[:id])
     @admin.name = params[:name]
     @admin.password_digest = params[:password_digest]
-    
+
     if @admin.save
             redirect_to admins_url
           else
