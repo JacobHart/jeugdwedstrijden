@@ -41,8 +41,6 @@
 # Also club/edit  rowerslists and rowers e.d. editten!
 
 # NU
-
-# Admin page calculate ranking doorlinken naar catogorien    knop daar zichtbaar maken if session exsists!
 # clubs laat alleen team pagina zien! maar dan gesorteerd op heats
 # heat 1  team 1
 #         team 4
