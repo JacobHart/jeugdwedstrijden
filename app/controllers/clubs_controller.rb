@@ -6,6 +6,9 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find_by_id(params[:id])
+    @teams = Team.all
+    @rowers = Rower.all
+
   end
 
   def new
