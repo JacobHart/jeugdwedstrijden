@@ -33,7 +33,7 @@
       <td><%= boat_type.teams.count %></td>
       <td><%= (boat_type.teams.map{|x| x.team_classifications.count}).sum %></td>
       <td><%= (boat_type.teams.map{|x| x.results.count}).sum %></td>
-      <td><%= link_to "Calculate Rankings", calculaterank_url(boat_type.id), :class => 'btn btn-success' if (boat_type.teams.map{|x| x.team_classifications.count}).sum == (boat_type.teams.map{|x| x.results.count}).sum %><%= link_to "Calculate Rankings", calculaterank_url(boat_type.id), :class => 'btn btn-danger' if (boat_type.teams.map{|x| x.team_classifications.count}).sum != (boat_type.teams.map{|x| x.results.count}).sum %></td>
+      <td><%= link_to "Calculate Rankings", boat_type_url(boat_type.id), :class => 'btn btn-success' if (boat_type.teams.map{|x| x.team_classifications.count}).sum == (boat_type.teams.map{|x| x.results.count}).sum %><%= link_to "Calculate Rankings", boat_type_url(boat_type.id), :class => 'btn btn-danger' if (boat_type.teams.map{|x| x.team_classifications.count}).sum != (boat_type.teams.map{|x| x.results.count}).sum %></td>
     </tr>
   <% end %>
   </tbody>

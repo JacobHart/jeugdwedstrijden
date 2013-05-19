@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Number of Teams</th>
+      <th></th>
       <th>Number of Rowers</th>
       <th></th>
       <th></th>
@@ -19,10 +20,13 @@
     <tr>
       <td><%= club.name %></td>
       <td><%= club.teams.count %></td>
+      <td>
+        <%= link_to 'Show Teams', club_url(club), :class => "btn btn-primary"  %>
+      </td>
       <td><%= club.rowers.count %></td>
-      <td><%= link_to 'Show', club_url(club)cc, :class => "btn btn-primary"  %></td>
-      <td><%= link_to 'Edit', edit_club_url(club) %></td>
-      <td><%= link_to 'Destroy', club_url(club), method: 'delete', data: { confirm: "Do you really want to delete this club?" } %></td>
+      <td>
+        <%= link_to 'Show Rowers', club_url(club), :class => "btn btn-primary"  %>
+      </td>
 
     </tr>
   <% end %>

@@ -45,11 +45,13 @@
         <% end %>
       </tr>
     <% end %>
-      <tr>
-        <td colspan="6">
-          <%= link_to "calculate rank", calculaterank_url(1), :class => "btn btn-warning" %>
-        </td>
-      </tr>
+      <% if signed_in? %>
+        <tr>
+          <td colspan="6">
+            <%= link_to "calculate rank", calculaterank_url(1), :class => "btn btn-warning" %>
+          </td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 
