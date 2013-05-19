@@ -34,18 +34,36 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Number</th>
         <th>Name</th>
-        <th>Details</th>
+        <th>Age</th>
+        <th>Club</th>
+        <th>First Team</th>
+        <th>Second Team</th>
+        <th>Third Team</th>
       </tr>
     </thead>
 
     <tbody>
     <% @club.rowers.each_with_index do |rower, index| %>
       <tr>
-        <td><%= index +1 %>
         <td><%= rower.name %></td>
-        <td><%= link_to 'Details', rower_url(rower) %></td>
+        <td><%= rower.age %></td>
+        <td><%= link_to rower.club.name, team_url(rower.club) %></td>
+        <% if rower.teams[0].present? %>
+        <td><%= link_to rower.teams[0].name, team_url(rower.teams[0]) %></td>
+        <% else %>
+        <td></td>
+        <%end%>
+        <% if rower.teams[1].present? %>
+        <td><%= link_to rower.teams[1].name, team_url(rower.teams[1]) %></td>
+        <% else %>
+        <td></td>
+        <%end%>
+        <% if rower.teams[2].present? %>
+        <td><%= link_to rower.teams[2].name, team_url(rower.teams[2]) %></td>
+        <% else %>
+        <td></td>
+        <%end%>
       </tr>
     <% end %>
     </tbody>

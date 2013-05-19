@@ -1,14 +1,22 @@
+
+
+
+# Controle:
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
-# Alles wat nu naar team/1 is doorgelinkt doorlinken naar teams?!
-# ik denk dat ik de roeiers maar moet verwijderen
-#  moet nog controle maken voor boot maar 1 keer per heat gebruiken.. anders wordt boot pagina raar
-# Links in menu ook afhankelijk van action zichtbaar?
+# results 1.20 + 2.0 is soms 3.21111111
+
+# Links in menu ook afhankelijk van action zichtbaar
+
 # Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging
-# Hoe werkt calculate rank met een leeg veld?!
-# Lege catogorien weghalen
 
+# Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(
 
-# boattypes show calculate rank button weg?!
+# Laatste:
+# Als laatste clubs/edit veranderen!
+# Alles wat nu naar team/1 is doorgelinkt doorlinken naar (clubs) in de plaats?!
+
+# Meerder keuzes bij results zoals genoteerd in collegeblok!
+# boattypes show calculate rank button weg?! Of alleen voor admin!! Toch admin knoppen toevoegen voor de leuk!
 
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
@@ -16,6 +24,7 @@
 
 # Gaat rank uitrekenen bij meerdere heats netjes?   wil je wel beide een rank geven? => ja! => maar er maar 1 weergeven!!!!! MOOOOOOOOOOOOI :)
 
+#  validations
 
 # opmaak:
 # responsive
@@ -25,18 +34,24 @@
 # liefste hele regel results versturen!   naja bij extra tijd!
 
 # extra:
-# Boatid nog vaker vermelden! rowers page bijv!
-# bij rowers worden de teams anders weergegeven dan  rowers op de team pagina   wat is mooier?
-# alle rowers en teams (vooral op club pagina?) klikbaar maken
-# heel veel later rower/show persoonlijke pagina met club resultaten   alleen na inloggen toegankelijk..
-# sites en adressen bij club
-# kijken wat weg kan bij responsive
+
+
 
 # Moet nog:
 # Also club/edit  rowerslists and rowers e.d. editten!
+
+# NU
+
+# Admin page calculate ranking doorlinken naar catogorien    knop daar zichtbaar maken if session exsists!
+# clubs laat alleen team pagina zien! maar dan gesorteerd op heats
+# heat 1  team 1
+#         team 4
+# of club kan teams of rowers renderen   dat is wel mooi :)
+
 # invoeren boten, boat_ids e.d.apparte pagina admin
-#2 Nieuwe invoer gegevens op admin pagina? of bij clubs new
+
 #  bij versturen forms in algemeen goed doorlinken!
+
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 
 
@@ -53,8 +68,8 @@
 # Controleren
 # controleren of je club.id hebt omgeschreven in .name
 
-# Notitie
-# Gekozen geen lanes... Wil dat alle boten zo dicht mogelijk bij de kant varen. geen lege plekken.
+
+# rowers en teams als pop-up???
 ZzvJeugdwedstrijden::Application.routes.draw do
 
   root :to => 'sessions#new'

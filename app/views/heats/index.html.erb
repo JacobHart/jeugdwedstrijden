@@ -1,3 +1,4 @@
+<h1>Draw</h1>
 
 <table class="table table-striped">
   <thead>
@@ -24,16 +25,14 @@
 
               <p class="text-info"><strong>
               Laptime =
-              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %>
-              </strong></p>
+              <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).laptime %><br>
 
-              <p class="text-info"><strong>
               Rank =
               <%=Result.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id).rank %>
               </strong></p>
 
             <% else %>
-              <p class="text-info"><strong><%= team_classification.boat.name %></strong><p>
+              <p><%= team_classification.boat.name %><p>
             <% end %>
           </td>
         <% end %>
@@ -49,5 +48,3 @@
   <% end %>
   </tbody>
 </table>
-
-

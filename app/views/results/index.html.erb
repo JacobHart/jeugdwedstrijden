@@ -1,62 +1,8 @@
 <h1>Results</h1>
+<br>
 
-<p><%= link_to 'Add a New Result', new_result_url %></p>
+<%= link_to 'Show results per category', boat_types_url, :class => "btn btn-primary"  %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Boat_type</th>
-      <th>Remark</th>
-      <th>Teams (# heats)</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @boat_types.each do |boat_type| %>
-      <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count > 1 %>
-        <tr>
-          <td><%= boat_type.name %></td>
-          <td><span class="label label-important">Some are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.</span></td>
-          <% boat_type.teams.each do |team| %>
-            <td><%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>)</td>
-          <% end %>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Laptime</th>
-      <th>Team</th>
-      <th>Heat</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @results.each do |result| %>
-    <tr>
-      <td><%= result.rank %></td>
-      <td><%= result.laptime %></td>
-      <td><%= result.team_id %></td>
-      <td><%= result.heat_id %></td>
-
-      <td><%= link_to 'Show', result_url(result) %></td>
-      <td><%= link_to 'Edit', edit_result_url(result) %></td>
-      <td><%= link_to 'Destroy', result_url(result), method: 'delete', data: { confirm: "Do you really want to delete this result?" } %></td>
-
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<h1>Boatname wordt vervangen door Results als die er zijn</h1>
 <table class="table table-striped">
   <thead>
     <tr>

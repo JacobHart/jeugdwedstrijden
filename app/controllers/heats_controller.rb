@@ -26,6 +26,7 @@ class HeatsController < ApplicationController
   end
 
   def edit
+    @boat_types = BoatType.all
     @heats = Heat.all
     @heat = Heat.find_by_id(params[:id])
   end

@@ -1,65 +1,32 @@
-<h1></h1>
+<h1>Categories</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
       <th colspan="<%= (@boat_types.map{|x| x.teams.count}).max %>">Teams</th>
-
+      <th>Results</th>
     </tr>
   </thead>
 
   <tbody>
   <% @boat_types.each do |boat_type| %>
-    <tr>
-      <td><%= boat_type.name %></td>
-      <td><%= link_to 'Show', boat_type_url(boat_type), :class => "btn btn-primary" %></td>
-      <td><% boat_type.teams.each do |team| %>
-      <%= link_to team.name, team_url(team) %>(<%= link_to team.club.name, club_url(team.club.id) %>)
-      <% end %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-
-<table class="table table-striped">
-  <caption><h3>Lege boattypes => if teams.count = 0 dan number of team en calculate rank weghalen</h3></caption>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Status</th>
-      <th># Teams</th>
-      <th># Expected Results</th>
-      <th># Results</th>
-      <th></th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @boat_types.each do |boat_type| %>
-    <tr>
-      <td><%= boat_type.name %></td>
+    <% if boat_type.teams.present? %>
+      <tr>
+        <td><%= boat_type.name %></td>
+        <% boat_type.teams.each do |team| %>
+          <td>
+            <%=team.name%> (<%= link_to team.club.name, club_url(team.club.id) %>)
+          </td>
+        <% end %>
+        <% ((@boat_types.map{|x| x.teams.count}).max - boat_type.teams.count).times do %>
+          <td></td>
+        <% end %>
         <td>
-          <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 0 %>
-            <span class="label label-warning">No teams are curently in this category</span>
-          <% elsif (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 1 %>
-            <span class="label label-success">All the teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times.</span>
-          <% else %>
-            <span class="label label-important">Some are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.</span>
-
-            <p><% boat_type.teams.each do |team| %>
-            <%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>)
-            <% end %></p>
-          <% end %>
+          <%= link_to 'Show', boat_type_url(boat_type), :class => "btn btn-primary" %>
         </td>
-      <td><%= boat_type.teams.count %></td>
-      <td><%= (boat_type.teams.map{|x| x.team_classifications.count}).sum %></td>
-      <td><%= (boat_type.teams.map{|x| x.results.count}).sum %></td>
-      <td><%= link_to "Calculate Rankings", calculaterank_url(boat_type.id), :class => 'btn btn-success' if (boat_type.teams.map{|x| x.team_classifications.count}).sum == (boat_type.teams.map{|x| x.results.count}).sum %><%= link_to "Calculate Rankings", calculaterank_url(boat_type.id), :class => 'btn btn-danger' if (boat_type.teams.map{|x| x.team_classifications.count}).sum != (boat_type.teams.map{|x| x.results.count}).sum %></td>
-    </tr>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>
