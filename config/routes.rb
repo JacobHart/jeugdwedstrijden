@@ -1,4 +1,4 @@
-# EEEERST RENDER CLUBS SHOW OPLOSSEN!
+# Team show bewaren voor admin!
 
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
 
@@ -17,10 +17,6 @@
 
 # Laatste:
 # Als laatste clubs/edit veranderen!
-# Alles wat nu naar team/1 is doorgelinkt doorlinken naar (clubs) in de plaats?!
-
-# Meerder keuzes bij results zoals genoteerd in collegeblok!
-# boattypes show calculate rank button weg?! Of alleen voor admin!! Toch admin knoppen toevoegen voor de leuk!
 
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
@@ -33,11 +29,10 @@
 # opmaak:
 # responsive
 # alle links controleren, sterkte!
-# heats/show opmaak bij verschillende grote boten.. viertje tegen tweetje?
 
 # liefste hele regel results versturen!   naja bij extra tijd!
 
-# extra:
+
 
 
 
@@ -45,10 +40,6 @@
 # Also club/edit  rowerslists and rowers e.d. editten!
 
 # NU
-# clubs laat alleen team pagina zien! maar dan gesorteerd op heats
-# heat 1  team 1
-#         team 4
-# of club kan teams of rowers renderen   dat is wel mooi :)
 
 # invoeren boten, boat_ids e.d.apparte pagina admin
 
@@ -59,13 +50,9 @@
 
 # Later bootjes nog boat_type geven!
 
-#!!!!!!! club show gesorteerd op heat, gaat nu toevallig goed
-# validates
 
 # notices maken! login, warning zoals onder, problemen  drama en verdriet.
 # !!! Al gedaan bij results   tabel omschrijven in notice! <= Bij heats edit en results en heats index waarschuuwing boven aan net als boattypes.
-
-# wel link naar teams houden voor als er iets opgezocht moet worden, rowers zijn minder belangrijk.. Maar wel leuk anders doe ik er niets mee.. Of op club pagina wel!
 
 # Controleren
 # controleren of je club.id hebt omgeschreven in .name

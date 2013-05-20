@@ -1,4 +1,5 @@
 <h1>Teams <%=@club.name%></h1>
+<p>On this page the teams of <%=@club.name%> are sorted on heats, this allowes, for instance coaches, to see when their next team is up for a race. Because of this a team can be listed several times. </p>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -12,36 +13,39 @@
   </thead>
 
   <tbody>
-  <% @club.teams.each do |team| %>
-    <tr>
-      <td>
-        <% team.heats.each do |heat| %>
-        <%= link_to heat.name, heat_url(heat) %>
+    <% @heats.each do |heat| %>
+      <% if heat.teams.map {|x| x.club.name}.include?(@club.name) %>
+        <% heat.teams.each do |team| %>
+          <tr>
+            <td><%= heat.name %></td>
+            <td><%= team.name %></td>
+            <td><%= team.boat_type.name %></td>
+            <td>
+              <% team.rowers.each do |rower| %>
+                <%= rower.name %>
+              <% end %>
+            </td>
+            <% if team.results.present? %>
+              <td>
+                <%= team.results.first.rank %>
+              </td>
+              <td>
+                (<% team.results.each do |result| %>
+                <%= result.laptime %> ,
+                <% end %>)
+              </td>
+            <% else %>
+              <% ((@club.teams.map {|x| x.results.count }).max + 1).times do %>
+                <td></td>
+              <% end %>
+            <% end %>
+          </tr>
         <% end %>
-      </td>
-      <td><%= team.name %></td>
-      <td><%= team.boat_type.name %></td>
-      <td>
-        <% team.rowers.each do |rower| %>
-        <%= rower.name %>
-        <% end %>
-      </td>
-        <% if team.results.present? %>
-      <td>
-        <%= team.results.first.rank %>
-      </td>
-      <td>
-        (<% team.results.each do |result| %>
-        <%= result.laptime %> ,
-        <% end %>)
-      </td>
-        <% else %>
-          <% ((@club.teams.map {|x| x.results.count }).max + 1).times do %>
-            <td></td>
-          <% end %>
-        <% end %>
-    </tr>
-  <% end %>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
+
+
+
 
