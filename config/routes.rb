@@ -1,3 +1,4 @@
+# jeugdwedstrijden nog naar about linken
 # Team show bewaren voor admin!
 
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
