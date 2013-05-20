@@ -4,22 +4,19 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th colspan="4"><%= @heat.name %></th>
+        <% @heat.teams.each do |team|%>
+        <th><%= team.name %></th>
+        <% end %>
+        <% (4-@heat.teams.each.count).times do%>
+        <th></th>
+        <% end %>
     </tr>
   </thead>
 
   <tbody>
     <tr>
-        <% @heat.teams.each do |team|%>
-        <td><%= link_to team.name, team_url(team) %></td>
-        <% end %>
-        <% (4-@heat.teams.each.count).times do%>
-        <td></td>
-        <% end %>
-    </tr>
-    <tr>
         <% @heat.boats.each do |boat|%>
-        <td><%= link_to boat.name, boat_url(boat) %></td>
+        <td><%= boat.name %></td>
         <% end %>
         <% (4-@heat.boats.each.count).times do%>
         <td></td>
@@ -29,7 +26,7 @@
       <% @heat.teams.each do |team|%>
         <td>
           <% team.rowers.each do |rower|%>
-            <p><%= link_to rower.name, rower_url(rower) %></p>
+            <p><%= rower.name %></p>
           <% end %>
         <% end %>
         </td>

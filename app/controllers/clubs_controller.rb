@@ -1,5 +1,18 @@
 class ClubsController < ApplicationController
 
+  def teams
+    @heats = Heat.all
+    @teams = Team.all
+    @club = Club.find_by_id(params[:id])
+    render 'teams/index'
+  end
+
+  def rowers
+    @rowers = Rower.all
+    @club = Club.find_by_id(params[:id])
+    render 'rowers/index'
+  end
+
   def index
     @clubs = Club.all
   end

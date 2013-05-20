@@ -1,49 +1,30 @@
-<h1>Rowers</h1>
-
-<p><%= link_to 'Add a New Rower', new_rower_url %></p>
+<h1>Rowers <%=@club.name%></h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Age</th>
-      <th>Club</th>
-      <th>Team 1</th>
-      <th>Team 2</th>
-      <th>Team 3</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <% (@club.rowers.map {|x| x.teams.count}).max.times do |i|%>
+      <th>Team <%= i + 1%></th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
-  <% @rowers.each do |rower| %>
+  <% @club.rowers.each do |rower| %>
     <tr>
       <td><%= rower.name %></td>
       <td><%= rower.age %></td>
-      <td><%= link_to rower.club.name, team_url(rower.club) %></td>
-      <% if rower.teams[0].present? %>
-      <td><%= link_to rower.teams[0].name, team_url(rower.teams[0]) %></td>
-      <% else %>
-      <td></td>
-      <%end%>
-      <% if rower.teams[1].present? %>
-      <td><%= link_to rower.teams[1].name, team_url(rower.teams[1]) %></td>
-      <% else %>
-      <td></td>
-      <%end%>
-      <% if rower.teams[2].present? %>
-      <td><%= link_to rower.teams[2].name, team_url(rower.teams[2]) %></td>
-      <% else %>
-      <td></td>
-      <%end%>
-
-
-      <td><%= link_to 'Show', rower_url(rower), :class => "btn btn-primary"  %></td>
-      <td><%= link_to 'Edit', edit_rower_url(rower) %></td>
-      <td><%= link_to 'Destroy', rower_url(rower), method: 'delete', data: { confirm: "Do you really want to delete this rower?" } %></td>
-
+      <% (@club.rowers.map {|x| x.teams.count}).max.times do |i|%>
+        <% if rower.teams[i].present? %>
+          <td><%= rower.teams[i].name %></td>
+        <% else %>
+          <% if (@club.rowers.map {|x| x.teams.count}).max > (i + 1)%>
+            <td></td>
+          <% end %>
+        <%end%>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

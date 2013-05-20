@@ -16,7 +16,7 @@
         <td><%= boat_type.name %></td>
         <% boat_type.teams.each do |team| %>
           <td>
-            <%=team.name%> (<%= link_to team.club.name, club_url(team.club.id) %>)
+            <%=team.name%> (<%= link_to team.club.name, club_teams_url(team.club.id) %>)
           </td>
         <% end %>
         <% ((@boat_types.map{|x| x.teams.count}).max - boat_type.teams.count).times do %>

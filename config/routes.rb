@@ -1,5 +1,9 @@
 # EEEERST RENDER CLUBS SHOW OPLOSSEN!
 
+# Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
+
+#  Other bootstrap layouts testen!!
+
 
 # Controle:
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
@@ -196,8 +200,12 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   # DELETE
   delete '/heats/:id', controller: 'heats', action: 'destroy'
   #------------------------------
-
   # Routes for the Club resource:
+
+  # Teams & Rowers
+  get '/clubs/:id/teams', controller: 'clubs', action: 'teams', as: 'club_teams'
+  get '/clubs/:id/rowers', controller: 'clubs', action: 'rowers', as: 'club_rowers'
+
   # CREATE
   get '/clubs/new', controller: 'clubs', action: 'new', as: 'new_club'
   post '/clubs', controller: 'clubs', action: 'create'
