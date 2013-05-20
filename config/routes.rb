@@ -7,7 +7,7 @@
 
 # Nu
 # aan menu nog actie toevoegen, anders alle results actief! Makkelijker dan je denkt!
-# invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)
+# invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)(params verstuurd welke geedit moet worden, piece of cake!)
 # bij versturen forms in algemeen goed doorlinken! (terug naar form meestal?)
 
 # Controle:
