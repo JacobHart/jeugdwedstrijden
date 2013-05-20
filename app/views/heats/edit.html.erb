@@ -1,28 +1,17 @@
 <h1>Editing Heats for admins</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Boat_type</th>
-      <th>Remark</th>
-      <th>Teams (# heats)</th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @boat_types.each do |boat_type| %>
       <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count > 1 %>
-        <tr>
-          <td><%= boat_type.name %></td>
-          <td><span class="label label-important">Some are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.</span></td>
-          <% boat_type.teams.each do |team| %>
-            <td><%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>)</td>
-          <% end %>
-        </tr>
+        <div class="alert alert-error">
+          <h4>Warning</h4>
+          <%= boat_type.name %>: Some teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times. Please
+          <p><% boat_type.teams.each do |team| %>
+            <%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>x)
+          <% end %><p>
+        </div>
       <% end %>
     <% end %>
-  </tbody>
-</table>
 
 
 <p><%= link_to 'Add a New Heat', new_heat_url, :class => "btn btn-success" %></p>

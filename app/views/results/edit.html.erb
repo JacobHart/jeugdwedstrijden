@@ -1,6 +1,6 @@
 <h1>Calculate Rankings</h1>
 
-<table class="table table-striped">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,23 +16,23 @@
   <tbody>
   <% @boat_types.each do |boat_type| %>
      <% unless (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 0 %>
-      <tr>
+      <tr <%= 'class=alert alert-error' unless (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 1  %>>
         <td><%= boat_type.name %></td>
           <td>
             <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count == 1 %>
-              <span class="label label-success">All the teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times.</span>
+              All the teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times.
             <% else %>
-              <span class="label label-important">Some are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.</span>
+              Some teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times.
 
               <p><% boat_type.teams.each do |team| %>
-              <%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>)
+              <%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>x)
               <% end %></p>
             <% end %>
           </td>
         <td><%= boat_type.teams.count %></td>
         <td><%= (boat_type.teams.map{|x| x.team_classifications.count}).sum %></td>
         <td><%= (boat_type.teams.map{|x| x.results.count}).sum %></td>
-        <td><%= link_to "Calculate Rankings", boat_type_url(boat_type.id), :class => 'btn btn-success' if (boat_type.teams.map{|x| x.team_classifications.count}).sum == (boat_type.teams.map{|x| x.results.count}).sum %><%= link_to "Calculate Rankings", boat_type_url(boat_type.id), :class => 'btn btn-danger' if (boat_type.teams.map{|x| x.team_classifications.count}).sum != (boat_type.teams.map{|x| x.results.count}).sum %></td>
+        <td><%= link_to "Calculate Rankings", boat_type_url(boat_type.id), :class => 'btn btn-inverse' if (boat_type.teams.map{|x| x.team_classifications.count}).sum == (boat_type.teams.map{|x| x.results.count}).sum %><%= link_to "Calculate Rankings", boat_type_url(boat_type.id), :class => 'btn' if (boat_type.teams.map{|x| x.team_classifications.count}).sum != (boat_type.teams.map{|x| x.results.count}).sum %></td>
       </tr>
     <% end %>
   <% end %>

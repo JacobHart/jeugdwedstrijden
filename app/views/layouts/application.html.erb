@@ -56,7 +56,7 @@
 
 <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <a class="brand" href="#">ZZV Jeugdwedstrijden</a>
+    <a class="brand">ZZV Jeugdwedstrijden</a>
     <ul class="nav">
     <li class="<%= 'active' if controller.class.name == '' %>"><%= link_to 'About', root_url %></li>
     <li class="divider-vertical"></li>
@@ -96,7 +96,6 @@
       <li class="divider"></li>
       <li class="nav-header">Info</li>
       <li class="<%= 'active' if controller.class.name == 'BoatsController' %>"><%= link_to 'Boat Classification', boats_url %></li>
-      <li class="<%= 'active' if controller.class.name == 'TeamsController' %>"><%= link_to 'Teams', teams_url(1) %></li>
       <li class="nav-header">Race Related</li>
       <li class="<%= 'active' if controller.class.name == 'HeatsController' %>"><%= link_to 'Change Heat', edit_heat_url(1) %></li>
       <li class="<%= 'active' if controller.class.name == 'ResultsController' %>"><%= link_to 'Add Results', new_result_url %></li>

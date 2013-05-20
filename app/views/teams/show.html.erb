@@ -1,3 +1,39 @@
-<h1>Teams</h1>
-<h1>ALles past al op index pag! (behalve age van de rowers)</h1>
-<h1>Alles wat nu naar team/1 is doorgelinkt doorlinken naar teams?!</h1>
+<h1><%=@team.name%></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Heats</th>
+      <th>Boat type</th>
+      <th>Rowers</th>
+      <th>Rank</th>
+      <th>Results</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <% @team.heats.each do |heat| %>
+        <%= link_to heat.name, heat_url(heat) %>
+        <% end %>
+      </td>
+      <td><%= @team.boat_type.name %></td>
+      <td>
+        <% @team.rowers.each do |rower| %>
+        <%= rower.name %>
+        <% end %>
+      </td>
+        <% if @team.results.present? %>
+      <td>
+        <%= @team.results.first.rank %>
+      </td>
+      <td>
+        (<% @team.results.each do |result| %>
+        <%= result.laptime %> ,
+        <% end %>)
+      </td>
+
+        <% end %>
+    </tr>
+  </tbody>
+</table>

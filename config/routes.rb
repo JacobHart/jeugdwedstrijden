@@ -1,65 +1,51 @@
-# jeugdwedstrijden nog naar about linken
+# NOTITIES
 # Team show bewaren voor admin!
+# Results/edit    layout table weggehaald ivm alert msgss die anders lelijk worden! (dit niet perongelukt terug veranderen)
 
+# Opties voor later
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
 
-#  Other bootstrap layouts testen!!
-
+# Nu
+# aan menu nog actie toevoegen, anders alle results actief! Makkelijker dan je denkt!
+# invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)
+# bij versturen forms in algemeen goed doorlinken! (terug naar form meestal?)
 
 # Controle:
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
 # results 1.20 + 2.0 is soms 3.21111111
+# Gaat rank uitrekenen bij meerdere heats netjes?   wil je wel beide een rank geven? => ja! => maar er maar 1 weergeven!!!!! MOOOOOOOOOOOOI :)
+# alle links controleren, sterkte!
+# controleren of je club.id hebt omgeschreven in .name
 
-# Links in menu ook afhankelijk van action zichtbaar
-
+# Morgen
+# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
+# Also club/edit  rowerslists and rowers e.d. editten!
 # Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging
-
 # Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(
-
-# Laatste:
 # Als laatste clubs/edit veranderen!
-
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
+#  validations
+# notices maken! login, warning zoals onder, problemen  drama en verdriet.
+
+# Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 
-# Gaat rank uitrekenen bij meerdere heats netjes?   wil je wel beide een rank geven? => ja! => maar er maar 1 weergeven!!!!! MOOOOOOOOOOOOI :)
-
-#  validations
-
 # opmaak:
 # responsive
-# alle links controleren, sterkte!
-
-# liefste hele regel results versturen!   naja bij extra tijd!
 
 
 
 
 
-# Moet nog:
-# Also club/edit  rowerslists and rowers e.d. editten!
-
-# NU
-
-# invoeren boten, boat_ids e.d.apparte pagina admin
-
-#  bij versturen forms in algemeen goed doorlinken!
-
-# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 
 
-# Later bootjes nog boat_type geven!
 
 
-# notices maken! login, warning zoals onder, problemen  drama en verdriet.
-# !!! Al gedaan bij results   tabel omschrijven in notice! <= Bij heats edit en results en heats index waarschuuwing boven aan net als boattypes.
-
-# Controleren
-# controleren of je club.id hebt omgeschreven in .name
 
 
-# rowers en teams als pop-up???
+
+
 ZzvJeugdwedstrijden::Application.routes.draw do
 
   root :to => 'sessions#new'
