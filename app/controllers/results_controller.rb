@@ -24,7 +24,7 @@ class ResultsController < ApplicationController
     @result.heat_id = params[:heat_id]
 
     if @result.save
-            redirect_to results_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'new'
     end
@@ -45,7 +45,7 @@ class ResultsController < ApplicationController
 
 
     if @result.save
-            redirect_to results_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'edit'
     end
@@ -54,7 +54,7 @@ class ResultsController < ApplicationController
   def destroy
     @result = Result.find_by_id(params[:id])
     @result.destroy
-        redirect_to results_url, notice: "Signed out successfully"
+        redirect_to :back, notice: "Signed out successfully"
   end
 
 end

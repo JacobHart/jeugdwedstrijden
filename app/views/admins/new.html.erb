@@ -19,7 +19,7 @@
     <tr>
       <% @clubs.each do |club| %>
         <td>
-          <%= link_to 'Edit', club_url(club), :class => "btn btn-warning"  %>
+          <%= link_to 'Edit', edit_club_url(club), :class => "btn btn-warning"  %>
         </td>
       <% end %>
     </tr>

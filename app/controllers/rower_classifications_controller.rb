@@ -24,7 +24,7 @@ class RowerClassificationsController < ApplicationController
   end
 
     if @rower_classification.save
-            redirect_to rower_classifications_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'new'
     end
@@ -40,7 +40,7 @@ class RowerClassificationsController < ApplicationController
     @rower_classification.team_id = params[:team_id]
 
     if @rower_classification.save
-            redirect_to rower_classifications_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'edit'
     end
@@ -49,6 +49,6 @@ class RowerClassificationsController < ApplicationController
   def destroy
     @rower_classification = RowerClassification.find_by_id(params[:id])
     @rower_classification.destroy
-        redirect_to rower_classifications_url, notice: "Signed out successfully"
+        redirect_to :back, notice: "Signed out successfully"
       end
 end

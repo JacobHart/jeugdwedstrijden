@@ -18,7 +18,7 @@ class BoatsController < ApplicationController
     @boat.name = params[:name]
 
     if @boat.save
-            redirect_to boats_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'new'
     end
@@ -33,7 +33,7 @@ class BoatsController < ApplicationController
     @boat.name = params[:name]
 
     if @boat.save
-            redirect_to boats_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'edit'
     end
@@ -42,6 +42,6 @@ class BoatsController < ApplicationController
   def destroy
     @boat = Boat.find_by_id(params[:id])
     @boat.destroy
-        redirect_to boats_url, notice: "Signed out successfully"
+        redirect_to :back, notice: "Signed out successfully"
       end
 end

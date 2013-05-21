@@ -19,7 +19,7 @@ class TeamClassificationsController < ApplicationController
     @team_classification.boat_id = params[:boat_id]
 
     if @team_classification.save
-            redirect_to team_classifications_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'new'
     end
@@ -36,7 +36,7 @@ class TeamClassificationsController < ApplicationController
     @team_classification.boat_id = params[:boat_id]
 
     if @team_classification.save
-            redirect_to team_classifications_url, notice: "Signed out successfully"
+            redirect_to :back, notice: "Signed out successfully"
           else
       render 'edit'
     end
@@ -45,6 +45,6 @@ class TeamClassificationsController < ApplicationController
   def destroy
     @team_classification = TeamClassification.find_by_id(params[:id])
     @team_classification.destroy
-        redirect_to team_classifications_url, notice: "Signed out successfully"
+        redirect_to :back, notice: "Signed out successfully"
       end
 end

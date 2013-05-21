@@ -12,8 +12,6 @@
 # notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
 # Je gaat nu edit pagina's hergebruiken dus wel opmaken! dropdown menu's e.d.
 # Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
-# bij versturen forms in algemeen goed doorlinken! (terug naar form meestal?)
-
 
 # Hippere realisticer seedfile met ZZV1 ipv team1
 
