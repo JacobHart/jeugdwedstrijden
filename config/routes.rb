@@ -6,13 +6,15 @@
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
 
 # Nu
-# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
+# !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)
 # validations
 # notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
-# Je gaat nu edit pagina's hergebruiken dus wel opmaken! dropdown menu's e.d.
-# error messegaes is anders dan notice en alert, kijken! lantern lesson custom validation!
+# http://lanternhq.com/courses/15/lessons/54-custom-validations-and-errors   error messegaes is anders dan notice en alert, kijken! lantern lesson custom validation!
 # Hippere realisticer seedfile met ZZV1 ipv team1
-# !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)
+# http://lanternhq.com/courses/15/lessons/42-pushing-to-heroku
+
+# moet dit wel???
+# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 
 # Controle:
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?

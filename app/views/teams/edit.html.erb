@@ -11,12 +11,12 @@
 
   <div>
     <%= label_tag :boat_type_id %><br />
-    <%= text_field_tag :boat_type_id, @team.boat_type_id %>
+    <%= select_tag :boat_type_id, options_from_collection_for_select(BoatType.all, :id, :name, @team.boat_type_id) %>
   </div>
 
   <div>
     <%= label_tag :club_id %><br />
-    <%= text_field_tag :club_id, @team.club_id %>
+    <%= select_tag :club_id, options_from_collection_for_select(Club.all, :id, :name, @team.club_id) %>
   </div>
 
 
