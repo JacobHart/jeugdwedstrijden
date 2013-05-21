@@ -69,9 +69,9 @@
           <li class="nav-header">Info</li>
           <li class="<%= 'active' if action_name == 'index' &&controller.class.name == 'BoatsController' %>"><%= link_to 'Boat Classification', boats_url %></li>
           <li class="nav-header">Race Related</li>
-          <li class="<%= 'active' if action_name == 'edit' &&controller.class.name == 'HeatsController' %>"><%= link_to 'Change Heat', edit_heat_url(1) %></li>
+          <li class="<%= 'active' if action_name == 'edit' &&controller.class.name == 'HeatsController' %>"><%= link_to 'Change Heat', edit_heat_url %></li>
           <li class="<%= 'active' if action_name == 'new' &&controller.class.name == 'ResultsController' %>"><%= link_to 'Add Results', new_result_url %></li>
-          <li class="<%= 'active' if action_name == 'edit' &&controller.class.name == 'ResultsController' %>"><%= link_to 'Calculate Ranking', edit_result_url(1) %></li>
+          <li class="<%= 'active' if action_name == 'edit' &&controller.class.name == 'ResultsController' %>"><%= link_to 'Calculate Ranking', edit_result_url %></li>
         </ul>
       <% end %>
       <li class="divider-vertical"></li>

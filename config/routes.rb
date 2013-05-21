@@ -6,12 +6,10 @@
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
 
 # Nu
-# JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 # validations
 # notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
 # Je gaat nu edit pagina's hergebruiken dus wel opmaken! dropdown menu's e.d.
-# Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
 # error messegaes is anders dan notice en alert, kijken! lantern lesson custom validation!
 # Hippere realisticer seedfile met ZZV1 ipv team1
 # !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)
@@ -31,6 +29,8 @@
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
 # Als laatste clubs/edit veranderen! (of wel goed zo? wel meer vrijheid voor admin!)
 #!!!VRAGEN!!! invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)(params verstuurd welke geedit moet worden, piece of cake!)
+# JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
+# Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
 
 # Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
@@ -50,7 +50,6 @@
 
 
 
-
 ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for about:
@@ -58,31 +57,57 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   get '/about', controller: 'about', action: 'index', as: 'about'
 
   # Routes for sessions:
+  get '/sessions/new' => 'sessions#new', as: 'new_session'
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy'
 
   # Routes for the Admin resource:
   # CREATE
   get '/admins/new', controller: 'admins', action: 'new', as: 'new_admin'
+  post '/admins', controller: 'admins', action: 'create'
 
+  # READ
+  get '/admins', controller: 'admins', action: 'index', as: 'admins'
+  get '/admins/:id', controller: 'admins', action: 'show', as: 'admin'
+
+  # UPDATE
+  get '/admins/:id/edit', controller: 'admins', action: 'edit', as: 'edit_admin'
+  put '/admins/:id', controller: 'admins', action: 'update'
+
+  # DELETE
+  delete '/admins/:id', controller: 'admins', action: 'destroy'
   #------------------------------
 
   # Routes for the Team_classification resource:
   # CREATE
+  get '/team_classifications/new', controller: 'team_classifications', action: 'new', as: 'new_team_classification'
   post '/team_classifications', controller: 'team_classifications', action: 'create'
 
+  # READ
+  get '/team_classifications', controller: 'team_classifications', action: 'index', as: 'team_classifications'
+  get '/team_classifications/:id', controller: 'team_classifications', action: 'show', as: 'team_classification'
+
+  # UPDATE
+  get '/team_classifications/:id/edit', controller: 'team_classifications', action: 'edit', as: 'edit_team_classification'
   put '/team_classifications/:id', controller: 'team_classifications', action: 'update'
 
+  # DELETE
   delete '/team_classifications/:id', controller: 'team_classifications', action: 'destroy'
   #------------------------------
 
   # Routes for the Result resource:
+  get '/results/edit', controller: 'results', action: 'edit', as: 'edit_result'
+
   # CREATE
   get '/results/new', controller: 'results', action: 'new', as: 'new_result'
   post '/results', controller: 'results', action: 'create'
 
+  # READ
+  get '/results', controller: 'results', action: 'index', as: 'results'
+  get '/results/:id', controller: 'results', action: 'show', as: 'result'
+
   # UPDATE
-  get '/results/:id/edit', controller: 'results', action: 'edit', as: 'edit_result'
+
   put '/results/:id', controller: 'results', action: 'update'
 
   # DELETE
@@ -91,6 +116,7 @@ ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for the Team resource:
   # CREATE
+  get '/teams/new', controller: 'teams', action: 'new', as: 'new_team'
   post '/teams', controller: 'teams', action: 'create'
 
   # READ
@@ -107,19 +133,30 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   #------------------------------
 
   # Routes for the Rower_classification resource:
+  # CREATE
+  get '/rower_classifications/new', controller: 'rower_classifications', action: 'new', as: 'new_rower_classification'
   post '/rower_classifications', controller: 'rower_classifications', action: 'create'
 
+  # READ
+  get '/rower_classifications', controller: 'rower_classifications', action: 'index', as: 'rower_classifications'
+  get '/rower_classifications/:id', controller: 'rower_classifications', action: 'show', as: 'rower_classification'
+
+  # UPDATE
+  get '/rower_classifications/:id/edit', controller: 'rower_classifications', action: 'edit', as: 'edit_rower_classification'
   put '/rower_classifications/:id', controller: 'rower_classifications', action: 'update'
 
+  # DELETE
   delete '/rower_classifications/:id', controller: 'rower_classifications', action: 'destroy'
   #------------------------------
 
   # Routes for the Rower resource:
   # CREATE
+  get '/rowers/new', controller: 'rowers', action: 'new', as: 'new_rower'
   post '/rowers', controller: 'rowers', action: 'create'
 
   # READ
   get '/rowers', controller: 'rowers', action: 'index', as: 'rowers'
+  get '/rowers/:id', controller: 'rowers', action: 'show', as: 'rower'
 
   # UPDATE
   get '/rowers/:id/edit', controller: 'rowers', action: 'edit', as: 'edit_rower'
@@ -128,8 +165,11 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   # DELETE
   delete '/rowers/:id', controller: 'rowers', action: 'destroy'
   #------------------------------
-
   # Routes for the Heat resource:
+
+  get '/heats/edit', controller: 'heats', action: 'edit', as: 'edit_heat'
+
+
   # CREATE
   get '/heats/new', controller: 'heats', action: 'new', as: 'new_heat'
   post '/heats', controller: 'heats', action: 'create'
@@ -139,7 +179,6 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   get '/heats/:id', controller: 'heats', action: 'show', as: 'heat'
 
   # UPDATE
-  get '/heats/:id/edit', controller: 'heats', action: 'edit', as: 'edit_heat'
   put '/heats/:id', controller: 'heats', action: 'update'
 
   # DELETE
@@ -152,6 +191,7 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   get '/clubs/:id/rowers', controller: 'clubs', action: 'rowers', as: 'club_rowers'
 
   # CREATE
+  get '/clubs/new', controller: 'clubs', action: 'new', as: 'new_club'
   post '/clubs', controller: 'clubs', action: 'create'
 
   # READ
@@ -168,6 +208,7 @@ ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for the Boat_type resource:
   # CREATE
+  get '/boat_types/new', controller: 'boat_types', action: 'new', as: 'new_boat_type'
   post '/boat_types', controller: 'boat_types', action: 'create'
 
   # READ
@@ -187,10 +228,12 @@ ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for the Boat resource:
   # CREATE
+  get '/boats/new', controller: 'boats', action: 'new', as: 'new_boat'
   post '/boats', controller: 'boats', action: 'create'
 
   # READ
   get '/boats', controller: 'boats', action: 'index', as: 'boats'
+  get '/boats/:id', controller: 'boats', action: 'show', as: 'boat'
 
   # UPDATE
   get '/boats/:id/edit', controller: 'boats', action: 'edit', as: 'edit_boat'
@@ -199,61 +242,4 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   # DELETE
   delete '/boats/:id', controller: 'boats', action: 'destroy'
   #------------------------------
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end
