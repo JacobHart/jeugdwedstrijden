@@ -1,4 +1,4 @@
-<h1>Editing Boat Type #<%= @boat_type.id %></h1>
+<h1>Editing <%= @boat_type.name %></h1>
 
 
 <%= form_tag(boat_type_url(@boat_type), method: 'put') do %>
@@ -8,7 +8,7 @@
     <%= text_field_tag :name, @boat_type.name %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Boat Type" %>
   </div>

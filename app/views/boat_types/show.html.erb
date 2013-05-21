@@ -21,7 +21,7 @@
         <td><%= team.name %></td>
         <td>
           <% team.rowers.each do |rower| %>
-            <%= link_to rower.name, rower_url(rower) %>
+            <%= rower.name %>
           <% end %>
         </td>
         <% if team.results.present? %>

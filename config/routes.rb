@@ -1,31 +1,38 @@
 # NOTITIES
-# Team show bewaren voor admin!
+# !!!!!!Team show bewaren voor admin!
 # Results/edit    layout table weggehaald ivm alert msgss die anders lelijk worden! (dit niet perongelukt terug veranderen)
 
 # Opties voor later
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
 
 # Nu
-# aan menu nog actie toevoegen, anders alle results actief! Makkelijker dan je denkt!
-# invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)(params verstuurd welke geedit moet worden, piece of cake!)
+# JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
+# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
+# validations
+# notices maken! login, warning zoals onder, problemen  drama en verdriet.
+# Je gaat nu edit pagina's hergebruiken dus wel opmaken! dropdown menu's e.d.
+# Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
 # bij versturen forms in algemeen goed doorlinken! (terug naar form meestal?)
+
+
+# Hippere realisticer seedfile met ZZV1 ipv team1
+
 
 # Controle:
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
 # results 1.20 + 2.0 is soms 3.21111111
-# Gaat rank uitrekenen bij meerdere heats netjes?   wil je wel beide een rank geven? => ja! => maar er maar 1 weergeven!!!!! MOOOOOOOOOOOOI :)
+# Gaat rank uitrekenen bij meerdere heats netjes?
 # alle links controleren, sterkte!
 # controleren of je club.id hebt omgeschreven in .name
+# Wat ik  et mentor heb gedaan op club edit pagina met blank?
+# alle destroy warning msges wel netjes?
 
-# Morgen
-# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
-# Also club/edit  rowerslists and rowers e.d. editten!
-# Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging
-# Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(
-# Als laatste clubs/edit veranderen!
+# Wat niet hoeft
+# Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging (hoeft niet)
+# Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(   (kan je niks aan doen)
 # admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
-#  validations
-# notices maken! login, warning zoals onder, problemen  drama en verdriet.
+# Als laatste clubs/edit veranderen! (of wel goed zo? wel meer vrijheid voor admin!)
+#!!!VRAGEN!!! invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)(params verstuurd welke geedit moet worden, piece of cake!)
 
 # Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
@@ -48,12 +55,14 @@
 
 ZzvJeugdwedstrijden::Application.routes.draw do
 
-  root :to => 'sessions#new'
+  # Routes for about:
+  root :to => 'about#index'
+  get '/about', controller: 'about', action: 'index', as: 'about'
 
+  # Routes for sessions:
   get '/sessions/new' => 'sessions#new', as: 'new_session'
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy'
-
 
   # Routes for the Admin resource:
   # CREATE

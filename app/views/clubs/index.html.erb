@@ -1,5 +1,7 @@
 <h1>Clubs</h1>
 
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -7,9 +9,17 @@
       <th>Number of Teams</th>
       <th></th>
       <th>Number of Rowers</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <% if signed_in? %>
+        <th></th>
+        <th>
+          <%= link_to 'New Club', new_club_url, :class => "btn btn-success"  %>
+        </th>
+        <th></th>
+      <% else %>
+        <th></th>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -25,7 +35,14 @@
       <td>
         <%= link_to 'Show Rowers', club_rowers_url(club), :class => "btn btn-inverse"  %>
       </td>
-
+      <% if signed_in? %>
+      <td>
+        <%= link_to 'Edit Club', edit_club_url(club), :class => "btn btn-success"  %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', club_url(club), method: 'delete', data: { confirm: "Do you really want to delete this club?" }, :class => "btn btn-warning" %>
+      </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

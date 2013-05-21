@@ -1,5 +1,6 @@
-<h1>Editing Team #<%= @team.id %></h1>
+<h1>Editing <%= @team.name %></h1>
 
+<h1>If you want to change which rowers belongs to which team then change the settings in step2 on <%= link_to "the previous page", edit_club_url(@team.club) %></h1>
 
 <%= form_tag(team_url(@team), method: 'put') do %>
 
@@ -18,7 +19,7 @@
     <%= text_field_tag :club_id, @team.club_id %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Team" %>
   </div>

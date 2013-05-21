@@ -10,6 +10,9 @@ class AdminsController < ApplicationController
 
   def new
     @admin = Admin.new
+    @clubs = Club.all
+    @boat_types = BoatType.all
+    @boats = Boat.all
   end
 
   def create

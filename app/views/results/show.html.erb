@@ -1,22 +1,38 @@
-<h1>Result #<%= @result.id %></h1>
+<h1><%= @heat.name %></h1>
 
-<p>
-  <b>Rank:</b>
-  <%= @result.rank %>
-</p>
 
-<p>
-  <b>Laptime:</b>
-  <%= @result.laptime %>
-</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <% @heat.teams.each do |team|%>
+        <th><%= team.name %></th>
+        <% end %>
+        <% (4-@heat.teams.each.count).times do%>
+        <th></th>
+        <% end %>
+    </tr>
+  </thead>
 
-<p>
-  <b>Team:</b>
-  <%= @result.team_id %>
-</p>
-
-<p>
-  <b>Heat:</b>
-  <%= @result.heat_id %>
-</p>
-
+  <tbody>
+    <tr>
+        <% @heat.boats.each do |boat|%>
+        <td><%= boat.name %></td>
+        <% end %>
+        <% (4-@heat.boats.each.count).times do%>
+        <td></td>
+        <% end %>
+    </tr>
+    <tr>
+      <% @heat.teams.each do |team|%>
+        <td>
+          <% team.rowers.each do |rower|%>
+            <p><%= rower.name %></p>
+          <% end %>
+        <% end %>
+        </td>
+        <% (4-@heat.teams.each.count).times do%>
+        <td></td>
+        <% end %>
+    </tr>
+  </tbody>
+</table>

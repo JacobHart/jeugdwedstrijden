@@ -60,18 +60,25 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Number</th>
         <th>Name</th>
-        <th>Details</th>
+        <th>Age</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
-    <% @club.rowers.each_with_index do |rower, index| %>
+    <% @club.rowers.each do |rower| %>
       <tr>
-        <td><%= index +1 %>
         <td><%= rower.name %></td>
-        <td><%= link_to 'Details', rower_url(rower) %></td>
+        <td><%= rower.age %></td>
+
+        <td>
+          <%= link_to 'Edit', edit_rower_url(rower), :class => "btn btn-warning" %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', rower_url(rower), method: 'delete', data: { confirm: "Do you really want to delete this rower?" }, :class => "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
     </tbody>
@@ -137,7 +144,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Heats</th>
           <th>Teams</th>
           <th colspan="4">Rowers</th>
         </tr>
@@ -145,14 +151,20 @@
       <tbody>
         <% @club.teams.each do |team| %>
           <tr>
-            <td><% team.heats.each do |heat| %>
-              <%= link_to heat.name, heat_url(heat) %>
-            <% end %></td>
             <td><%= link_to team.name, team_url(team) %></td>
+            <td>
+                <%= team.boat_type.name %>
+            </td>
             <td>
               <% team.rowers.each do |rower| %>
                 <%= rower.name %>
               <% end %>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_team_url(team), :class => "btn btn-warning" %>
+            </td>
+            <td>
+              <%= link_to 'Destroy', team_url(team), method: 'delete', data: { confirm: "Do you really want to delete this team?" }, :class => "btn btn-danger" %>
             </td>
           </tr>
         <% end %>
