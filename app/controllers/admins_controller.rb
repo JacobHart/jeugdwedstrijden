@@ -19,8 +19,8 @@ class AdminsController < ApplicationController
     @admin = Admin.new(params[:admin])
 
     if @admin.save
-            redirect_to admins_url
-          else
+      redirect_to admins_url, notice: "Admin created successfully"
+    else
       render 'new'
     end
   end
@@ -35,8 +35,8 @@ class AdminsController < ApplicationController
     @admin.password_digest = params[:password_digest]
 
     if @admin.save
-            redirect_to admins_url
-          else
+      redirect_to admins_url, notice: "Admin updated successfully"
+    else
       render 'edit'
     end
   end
@@ -44,6 +44,6 @@ class AdminsController < ApplicationController
   def destroy
     @admin = Admin.find_by_id(params[:id])
     @admin.destroy
-        redirect_to admins_url
-      end
+    redirect_to admins_url, notice: "Admin deleted successfully"
+  end
 end

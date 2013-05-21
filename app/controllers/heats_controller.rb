@@ -19,7 +19,7 @@ class HeatsController < ApplicationController
     @heat.name = params[:name]
 
     if @heat.save
-            redirect_to heats_url
+            redirect_to heats_url, notice: "Signed out successfully"
           else
       render 'new'
     end
@@ -36,7 +36,7 @@ class HeatsController < ApplicationController
     @heat.name = params[:name]
 
     if @heat.save
-            redirect_to heats_url
+            redirect_to heats_url, notice: "Signed out successfully"
           else
       render 'edit'
     end
@@ -45,6 +45,6 @@ class HeatsController < ApplicationController
   def destroy
     @heat = Heat.find_by_id(params[:id])
     @heat.destroy
-        redirect_to heats_url
+        redirect_to heats_url, notice: "Signed out successfully"
       end
 end

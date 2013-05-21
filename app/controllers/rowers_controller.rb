@@ -19,7 +19,7 @@ class RowersController < ApplicationController
     @rower.club_id = params[:club_id]
 
     if @rower.save
-      redirect_to rowers_url
+      redirect_to rowers_url, notice: "Signed out successfully"
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class RowersController < ApplicationController
     @rower.club_id = params[:club_id]
 
     if @rower.save
-            redirect_to rowers_url
+            redirect_to rowers_url, notice: "Signed out successfully"
           else
       render 'edit'
     end
@@ -45,6 +45,6 @@ class RowersController < ApplicationController
   def destroy
     @rower = Rower.find_by_id(params[:id])
     @rower.destroy
-        redirect_to rowers_url
+        redirect_to rowers_url, notice: "Signed out successfully"
       end
 end

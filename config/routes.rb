@@ -9,7 +9,7 @@
 # JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 # validations
-# notices maken! login, warning zoals onder, problemen  drama en verdriet.
+# notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
 # Je gaat nu edit pagina's hergebruiken dus wel opmaken! dropdown menu's e.d.
 # Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
 # bij versturen forms in algemeen goed doorlinken! (terug naar form meestal?)

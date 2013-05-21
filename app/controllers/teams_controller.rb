@@ -19,8 +19,8 @@ class TeamsController < ApplicationController
     @team.club_id = params[:club_id]
 
     if @team.save
-            redirect_to teams_url
-          else
+      redirect_to teams_url, notice: "Signed out successfully"
+    else
       render 'new'
     end
   end
@@ -36,8 +36,8 @@ class TeamsController < ApplicationController
     @team.club_id = params[:club_id]
 
     if @team.save
-            redirect_to teams_url
-          else
+      redirect_to teams_url, notice: "Signed out successfully"
+    else
       render 'edit'
     end
   end
@@ -45,6 +45,6 @@ class TeamsController < ApplicationController
   def destroy
     @team = Team.find_by_id(params[:id])
     @team.destroy
-        redirect_to teams_url
-      end
+    redirect_to teams_url, notice: "Removed team successfully"
+  end
 end

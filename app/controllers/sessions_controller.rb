@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
 
     if admin.present? && admin.authenticate(params[:password])
       session[:admin_id] = admin.id
-      redirect_to admins_url
+      redirect_to :back, notice: "Signed in successfully"
     else
-      redirect_to admins_url
+      redirect_to :back, alert: "Wrong password"
     end
   end
 
   def destroy
     reset_session
-    redirect_to rowers_url
+    redirect_to :back, notice: "Signed out successfully"
   end
 end
