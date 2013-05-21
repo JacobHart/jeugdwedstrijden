@@ -12,9 +12,9 @@
 # notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
 # Je gaat nu edit pagina's hergebruiken dus wel opmaken! dropdown menu's e.d.
 # Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
-
+# error messegaes is anders dan notice en alert, kijken! lantern lesson custom validation!
 # Hippere realisticer seedfile met ZZV1 ipv team1
-
+# !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)
 
 # Controle:
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
@@ -58,41 +58,21 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   get '/about', controller: 'about', action: 'index', as: 'about'
 
   # Routes for sessions:
-  get '/sessions/new' => 'sessions#new', as: 'new_session'
   post '/sessions' => 'sessions#create', as: 'sessions'
   delete '/sessions' => 'sessions#destroy'
 
   # Routes for the Admin resource:
   # CREATE
   get '/admins/new', controller: 'admins', action: 'new', as: 'new_admin'
-  post '/admins', controller: 'admins', action: 'create'
 
-  # READ
-  get '/admins', controller: 'admins', action: 'index', as: 'admins'
-  get '/admins/:id', controller: 'admins', action: 'show', as: 'admin'
-
-  # UPDATE
-  get '/admins/:id/edit', controller: 'admins', action: 'edit', as: 'edit_admin'
-  put '/admins/:id', controller: 'admins', action: 'update'
-
-  # DELETE
-  delete '/admins/:id', controller: 'admins', action: 'destroy'
   #------------------------------
 
   # Routes for the Team_classification resource:
   # CREATE
-  get '/team_classifications/new', controller: 'team_classifications', action: 'new', as: 'new_team_classification'
   post '/team_classifications', controller: 'team_classifications', action: 'create'
 
-  # READ
-  get '/team_classifications', controller: 'team_classifications', action: 'index', as: 'team_classifications'
-  get '/team_classifications/:id', controller: 'team_classifications', action: 'show', as: 'team_classification'
-
-  # UPDATE
-  get '/team_classifications/:id/edit', controller: 'team_classifications', action: 'edit', as: 'edit_team_classification'
   put '/team_classifications/:id', controller: 'team_classifications', action: 'update'
 
-  # DELETE
   delete '/team_classifications/:id', controller: 'team_classifications', action: 'destroy'
   #------------------------------
 
@@ -100,10 +80,6 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   # CREATE
   get '/results/new', controller: 'results', action: 'new', as: 'new_result'
   post '/results', controller: 'results', action: 'create'
-
-  # READ
-  get '/results', controller: 'results', action: 'index', as: 'results'
-  get '/results/:id', controller: 'results', action: 'show', as: 'result'
 
   # UPDATE
   get '/results/:id/edit', controller: 'results', action: 'edit', as: 'edit_result'
@@ -115,7 +91,6 @@ ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for the Team resource:
   # CREATE
-  get '/teams/new', controller: 'teams', action: 'new', as: 'new_team'
   post '/teams', controller: 'teams', action: 'create'
 
   # READ
@@ -132,30 +107,19 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   #------------------------------
 
   # Routes for the Rower_classification resource:
-  # CREATE
-  get '/rower_classifications/new', controller: 'rower_classifications', action: 'new', as: 'new_rower_classification'
   post '/rower_classifications', controller: 'rower_classifications', action: 'create'
 
-  # READ
-  get '/rower_classifications', controller: 'rower_classifications', action: 'index', as: 'rower_classifications'
-  get '/rower_classifications/:id', controller: 'rower_classifications', action: 'show', as: 'rower_classification'
-
-  # UPDATE
-  get '/rower_classifications/:id/edit', controller: 'rower_classifications', action: 'edit', as: 'edit_rower_classification'
   put '/rower_classifications/:id', controller: 'rower_classifications', action: 'update'
 
-  # DELETE
   delete '/rower_classifications/:id', controller: 'rower_classifications', action: 'destroy'
   #------------------------------
 
   # Routes for the Rower resource:
   # CREATE
-  get '/rowers/new', controller: 'rowers', action: 'new', as: 'new_rower'
   post '/rowers', controller: 'rowers', action: 'create'
 
   # READ
   get '/rowers', controller: 'rowers', action: 'index', as: 'rowers'
-  get '/rowers/:id', controller: 'rowers', action: 'show', as: 'rower'
 
   # UPDATE
   get '/rowers/:id/edit', controller: 'rowers', action: 'edit', as: 'edit_rower'
@@ -188,7 +152,6 @@ ZzvJeugdwedstrijden::Application.routes.draw do
   get '/clubs/:id/rowers', controller: 'clubs', action: 'rowers', as: 'club_rowers'
 
   # CREATE
-  get '/clubs/new', controller: 'clubs', action: 'new', as: 'new_club'
   post '/clubs', controller: 'clubs', action: 'create'
 
   # READ
@@ -205,7 +168,6 @@ ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for the Boat_type resource:
   # CREATE
-  get '/boat_types/new', controller: 'boat_types', action: 'new', as: 'new_boat_type'
   post '/boat_types', controller: 'boat_types', action: 'create'
 
   # READ
@@ -225,12 +187,10 @@ ZzvJeugdwedstrijden::Application.routes.draw do
 
   # Routes for the Boat resource:
   # CREATE
-  get '/boats/new', controller: 'boats', action: 'new', as: 'new_boat'
   post '/boats', controller: 'boats', action: 'create'
 
   # READ
   get '/boats', controller: 'boats', action: 'index', as: 'boats'
-  get '/boats/:id', controller: 'boats', action: 'show', as: 'boat'
 
   # UPDATE
   get '/boats/:id/edit', controller: 'boats', action: 'edit', as: 'edit_boat'

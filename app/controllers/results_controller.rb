@@ -1,15 +1,5 @@
 class ResultsController < ApplicationController
 
-  def index
-    @results = Result.all
-    @heats = Heat.all
-    @boat_types = BoatType.all
-  end
-
-  def show
-    @result = Result.find_by_id(params[:id])
-  end
-
   def new
     @results = Result.all
     @result = Result.new

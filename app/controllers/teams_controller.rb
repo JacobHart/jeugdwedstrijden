@@ -8,10 +8,6 @@ class TeamsController < ApplicationController
     @team = Team.find_by_id(params[:id])
   end
 
-  def new
-    @team = Team.new
-  end
-
   def create
     @team = Team.new
     @team.name = params[:name]

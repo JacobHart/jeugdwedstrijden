@@ -21,11 +21,6 @@ class ClubsController < ApplicationController
     @club = Club.find_by_id(params[:id])
     @teams = Team.all
     @rowers = Rower.all
-
-  end
-
-  def new
-    @club = Club.new
   end
 
   def create

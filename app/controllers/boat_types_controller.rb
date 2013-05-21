@@ -8,10 +8,6 @@ class BoatTypesController < ApplicationController
     @boat_type = BoatType.find_by_id(params[:id])
   end
 
-  def new
-    @boat_type = BoatType.new
-  end
-
   def create
     @boat_type = BoatType.new
     @boat_type.name = params[:name]
@@ -66,6 +62,6 @@ class BoatTypesController < ApplicationController
       end
       @total_time_previous_team = team.results.sum(:laptime).to_f
     end
-          redirect_to :back
+          redirect_to :back, notice: "Rank calculated successfully"
   end
 end

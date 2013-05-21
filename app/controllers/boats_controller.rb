@@ -5,14 +5,6 @@ class BoatsController < ApplicationController
     @heats = Heat.all
   end
 
-  def show
-    @boat = Boat.find_by_id(params[:id])
-  end
-
-  def new
-    @boat = Boat.new
-  end
-
   def create
     @boat = Boat.new
     @boat.name = params[:name]

@@ -1,17 +1,5 @@
 class RowerClassificationsController < ApplicationController
 
-  def index
-    @rower_classifications = RowerClassification.all
-  end
-
-  def show
-    @rower_classification = RowerClassification.find_by_id(params[:id])
-  end
-
-  def new
-    @rower_classification = RowerClassification.new
-  end
-
   def create
 
   [params[:rower_id_0],params[:rower_id_1],params[:rower_id_2],params[:rower_id_3]].each do |i|
@@ -28,10 +16,6 @@ class RowerClassificationsController < ApplicationController
           else
       render 'new'
     end
-  end
-
-  def edit
-    @rower_classification = RowerClassification.find_by_id(params[:id])
   end
 
   def update

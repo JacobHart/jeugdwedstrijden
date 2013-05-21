@@ -4,14 +4,6 @@ class RowersController < ApplicationController
     @rowers = Rower.all
   end
 
-  def show
-    @rower = Rower.find_by_id(params[:id])
-  end
-
-  def new
-    @rower = Rower.new
-  end
-
   def create
     @rower = Rower.new
     @rower.name = params[:name]
