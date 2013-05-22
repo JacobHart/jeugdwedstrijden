@@ -1,4 +1,5 @@
 class RowersController < ApplicationController
+before_filter :authorize_user
 
   def index
     @rowers = Rower.all

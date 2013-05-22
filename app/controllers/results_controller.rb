@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-
+before_filter :authorize_user
   def new
     @results = Result.all
     @result = Result.new

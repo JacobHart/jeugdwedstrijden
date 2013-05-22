@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-
+before_filter :authorize_user
   def index
     @boats = Boat.all
     @heats = Heat.all

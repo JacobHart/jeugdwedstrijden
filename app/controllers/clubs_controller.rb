@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-
+before_filter :authorize_user, except: [:index, :teams, :rowers]
   def teams
     @heats = Heat.all
     @teams = Team.all

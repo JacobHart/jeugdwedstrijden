@@ -1,4 +1,5 @@
 class RowerClassificationsController < ApplicationController
+before_filter :authorize_user
 
   def create
 

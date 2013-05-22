@@ -1,4 +1,5 @@
 class HeatsController < ApplicationController
+before_filter :authorize_user, except: [:index, :show]
 
   def index
     @heats = Heat.all

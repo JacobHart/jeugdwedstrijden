@@ -1,22 +1,8 @@
-# NOTITIES
-# !!!!!!Team show bewaren voor admin!
-# Results/edit    layout table weggehaald ivm alert msgss die anders lelijk worden! (dit niet perongelukt terug veranderen)
-# Error msg op andere pagina lukt niet, je krijgt geen id mee!
-
-# Opties voor later
-# Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
-
 # Nu
-# # admin before_filter :authorize_user, only: [:edit, :update, :destroy]
-# before_filter :require_signed_in_user
-# result model validates unique combination heat&team
-# rower class model ook unique combination, en team class ook
-
 # In admin nav goed aangeven waar je club kan toevogen
+# Hippere realisticer seedfile met ZZV1 ipv team1. Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
+# zondr container mooier! Of, toch niet? Foto toevoegen!
 
-# Hippere realisticer seedfile met ZZV1 ipv team1
-# http://lanternhq.com/courses/15/lessons/42-pushing-to-heroku
-# zondr container mooier!
 # clubs show kan weg toch!? anders opmaak met page header
 # Small text in h1 header weg bij responsive!
 # MOEILIJK KAN NOG NIET ROWER CLASSIFICATION UPDATEN!

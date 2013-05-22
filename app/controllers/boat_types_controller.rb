@@ -1,4 +1,5 @@
 class BoatTypesController < ApplicationController
+before_filter :authorize_user, except: [:index, :show]
 
   def index
     @boat_types = BoatType.all

@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+before_filter :authorize_user, except: [:show]
 
   def index
     @teams = Team.all

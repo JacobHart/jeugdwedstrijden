@@ -1,4 +1,5 @@
 class TeamClassificationsController < ApplicationController
+before_filter :authorize_user
 
   def create
     @team_classification = TeamClassification.new
