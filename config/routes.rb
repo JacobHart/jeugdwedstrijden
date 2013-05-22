@@ -11,9 +11,9 @@
 # before_filter :require_signed_in_user
 # result model validates unique combination heat&team
 # rower class model ook unique combination, en team class ook
+
 # In admin nav goed aangeven waar je club kan toevogen
 
-# notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
 # Hippere realisticer seedfile met ZZV1 ipv team1
 # http://lanternhq.com/courses/15/lessons/42-pushing-to-heroku
 # zondr container mooier!
@@ -34,6 +34,7 @@
 # Wat ik  et mentor heb gedaan op club edit pagina met blank?
 # alle destroy warning msges wel netjes?
 # !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)   en sommige unqieness
+#  OEf werken alle notices and errors?
 
 # Wat niet hoeft
 # Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging (hoeft niet)
