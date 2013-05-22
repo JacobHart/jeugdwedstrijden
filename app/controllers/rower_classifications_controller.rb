@@ -14,7 +14,7 @@ class RowerClassificationsController < ApplicationController
     if @rower_classification.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @rower_classification.errors.full_messages
       redirect_to :back
     end
   end
@@ -27,7 +27,7 @@ class RowerClassificationsController < ApplicationController
     if @rower_classification.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @rower_classification.errors.full_messages
       redirect_to :back
     end
   end

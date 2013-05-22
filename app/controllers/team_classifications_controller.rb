@@ -9,7 +9,7 @@ class TeamClassificationsController < ApplicationController
     if @team_classification.save
       redirect_to :back, notice: "Signed out successfully"
         else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @team_classification.errors.full_messages
       redirect_to :back
     end
   end
@@ -23,7 +23,7 @@ class TeamClassificationsController < ApplicationController
     if @team_classification.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @team_classification.errors.full_messages
       redirect_to :back
     end
   end

@@ -16,7 +16,7 @@ class ResultsController < ApplicationController
     if @result.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @result.errors.full_messages
       redirect_to :back
     end
   end
@@ -38,7 +38,7 @@ class ResultsController < ApplicationController
     if @result.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @result.errors.full_messages
       redirect_to :back
     end
   end

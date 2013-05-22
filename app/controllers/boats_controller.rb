@@ -12,7 +12,7 @@ class BoatsController < ApplicationController
     if @boat.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @boat.errors.full_messages
       redirect_to :back
     end
   end
@@ -28,7 +28,7 @@ class BoatsController < ApplicationController
     if @boat.save
             redirect_to :back, notice: "Signed out successfully"
           else
-      flash[:error] = @club.errors.full_messages
+      flash[:error] = @boat.errors.full_messages
       redirect_to :back
     end
   end
