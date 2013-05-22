@@ -15,7 +15,8 @@ class BoatTypesController < ApplicationController
     if @boat_type.save
       redirect_to :back, notice: "Category updated successfully"
     else
-      render 'new'
+      flash[:error] = @club.errors.full_messages
+      redirect_to :back
     end
   end
 
@@ -28,9 +29,10 @@ class BoatTypesController < ApplicationController
     @boat_type.name = params[:name]
 
     if @boat_type.save
-            redirect_to :back, notice: "Signed out successfully"
+      redirect_to :back, notice: "Signed out successfully"
           else
-      render 'edit'
+      flash[:error] = @club.errors.full_messages
+      redirect_to :back
     end
   end
 

@@ -17,7 +17,8 @@ class TeamsController < ApplicationController
     if @team.save
       redirect_to :back, notice: "Signed out successfully"
     else
-      render 'new'
+      flash[:error] = @club.errors.full_messages
+      redirect_to :back
     end
   end
 
@@ -34,7 +35,8 @@ class TeamsController < ApplicationController
     if @team.save
       redirect_to edit_club_url(@team.club_id), notice: "Signed out successfully"
     else
-      render 'edit'
+      flash[:error] = @club.errors.full_messages
+      redirect_to :back
     end
   end
 

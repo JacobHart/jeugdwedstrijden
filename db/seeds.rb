@@ -136,7 +136,7 @@ end
   t.save
 end
 
-
+puts "There are now #{Boat.count} Boats in the database"
 puts "There are now #{Boat.count} Boats in the database"
 puts "There are now #{BoatType.count} BoatTypes in the database"
 puts "There are now #{Club.count} Clubs in the database"

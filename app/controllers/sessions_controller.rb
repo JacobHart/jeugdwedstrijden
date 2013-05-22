@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+
+  end
 
   def create
     admin = Admin.find_by_name(params[:name])

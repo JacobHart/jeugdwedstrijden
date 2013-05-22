@@ -1,6 +1,7 @@
 # NOTITIES
 # !!!!!!Team show bewaren voor admin!
 # Results/edit    layout table weggehaald ivm alert msgss die anders lelijk worden! (dit niet perongelukt terug veranderen)
+# Error msg op andere pagina lukt niet, je krijgt geen id mee!
 
 # Opties voor later
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)

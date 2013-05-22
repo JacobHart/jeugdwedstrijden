@@ -1,3 +1,12 @@
+<% if @club %>
+  <% if @club.errors.any? %>
+    <ul>
+      <% @club.errors.full_messages do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
 
 <table class="table table-striped">
   <thead>
