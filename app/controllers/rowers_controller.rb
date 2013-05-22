@@ -11,7 +11,7 @@ class RowersController < ApplicationController
     @rower.club_id = params[:club_id]
 
     if @rower.save
-      redirect_to :back, notice: "Signed out successfully"
+      redirect_to :back, notice: "Rower added successfully"
     else
       flash[:error] = @rower.errors.full_messages
       redirect_to :back
@@ -29,7 +29,7 @@ class RowersController < ApplicationController
     @rower.club_id = params[:club_id]
 
     if @rower.save
-            redirect_to edit_club_url(@rower.club_id), notice: "Signed out successfully"
+            redirect_to edit_club_url(@rower.club_id), notice: "Rower updated successfully"
           else
       flash[:error] = @rower.errors.full_messages
       redirect_to :back
@@ -39,6 +39,6 @@ class RowersController < ApplicationController
   def destroy
     @rower = Rower.find_by_id(params[:id])
     @rower.destroy
-        redirect_to :back, notice: "Signed out successfully"
+        redirect_to :back, notice: "Rower removed successfully"
       end
 end

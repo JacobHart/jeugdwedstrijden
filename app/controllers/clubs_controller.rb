@@ -28,7 +28,7 @@ class ClubsController < ApplicationController
     @club.name = params[:name]
 
     if @club.save
-      redirect_to :back, notice: "Signed out successfully"
+      redirect_to :back, notice: "Club created successfully"
     else
       flash[:error] = @club.errors.full_messages
       redirect_to :back
@@ -44,7 +44,7 @@ class ClubsController < ApplicationController
     @club.name = params[:name]
 
     if @club.save
-            redirect_to :back, notice: "Signed out successfully"
+            redirect_to :back, notice: "Club updated successfully"
           else
       flash[:error] = @club.errors.full_messages
       redirect_to :back
@@ -54,6 +54,6 @@ class ClubsController < ApplicationController
   def destroy
     @club = Club.find_by_id(params[:id])
     @club.destroy
-        redirect_to :back, notice: "Signed out successfully"
+        redirect_to :back, notice: "Club removed successfully"
       end
 end

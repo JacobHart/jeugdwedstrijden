@@ -13,7 +13,7 @@ class BoatTypesController < ApplicationController
     @boat_type.name = params[:name]
 
     if @boat_type.save
-      redirect_to :back, notice: "Category updated successfully"
+      redirect_to :back, notice: "Category created successfully"
     else
       flash[:error] = @boat_type.errors.full_messages
       redirect_to :back
@@ -29,7 +29,7 @@ class BoatTypesController < ApplicationController
     @boat_type.name = params[:name]
 
     if @boat_type.save
-      redirect_to :back, notice: "Signed out successfully"
+      redirect_to :back, notice: "Category updated successfully"
           else
       flash[:error] = @boat_type.errors.full_messages
       redirect_to :back
@@ -39,7 +39,7 @@ class BoatTypesController < ApplicationController
   def destroy
     @boat_type = BoatType.find_by_id(params[:id])
     @boat_type.destroy
-        redirect_to :back, notice: "Signed out successfully"
+        redirect_to :back, notice: "Category removed successfully"
       end
 
   def calculaterank

@@ -9,18 +9,17 @@
 # Nu
 # # admin before_filter :authorize_user, only: [:edit, :update, :destroy]
 # before_filter :require_signed_in_user
+# result model validates unique combination heat&team
+# rower class model ook unique combination, en team class ook
 # In admin nav goed aangeven waar je club kan toevogen
 
 # notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
-# http://lanternhq.com/courses/15/lessons/54-custom-validations-and-errors   error messegaes is anders dan notice en alert, kijken! lantern lesson custom validation!
 # Hippere realisticer seedfile met ZZV1 ipv team1
 # http://lanternhq.com/courses/15/lessons/42-pushing-to-heroku
-
 # zondr container mooier!
-# result model validates unique combination heat&team
-# rower class model ook unique combination, en team class ook
 # clubs show kan weg toch!? anders opmaak met page header
 # Small text in h1 header weg bij responsive!
+# MOEILIJK KAN NOG NIET ROWER CLASSIFICATION UPDATEN!
 
 # moet dit wel???
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)

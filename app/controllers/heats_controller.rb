@@ -19,7 +19,7 @@ class HeatsController < ApplicationController
     @heat.name = params[:name]
 
     if @heat.save
-            redirect_to :back, notice: "Signed out successfully"
+            redirect_to :back, notice: "Heat created successfully"
           else
       flash[:error] = @heat.errors.full_messages
       redirect_to :back
@@ -37,7 +37,7 @@ class HeatsController < ApplicationController
     @heat.name = params[:name]
 
     if @heat.save
-            redirect_to :back, notice: "Signed out successfully"
+            redirect_to :back, notice: "Heat updated successfully"
           else
       flash[:error] = @heat.errors.full_messages
       redirect_to :back
@@ -47,6 +47,6 @@ class HeatsController < ApplicationController
   def destroy
     @heat = Heat.find_by_id(params[:id])
     @heat.destroy
-        redirect_to :back, notice: "Signed out successfully"
+        redirect_to :back, notice: "Head removed successfully"
       end
 end
