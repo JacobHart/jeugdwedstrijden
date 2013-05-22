@@ -1,5 +1,6 @@
-<h1>Editing Rower #<%= @rower.id %></h1>
-
+<div class="page-header">
+  <h1>@rower.name <small>who are you?</small></h1>
+</div>
 
 <%= form_tag(rower_url(@rower), method: 'put') do %>
 

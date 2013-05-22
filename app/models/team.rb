@@ -9,5 +9,9 @@ class Team < ActiveRecord::Base
   belongs_to :boat_type
   has_many :results
 
-  validates :name, :boat_type_id, :club_id, :presence => true
+  validates :name, presence: true
+  validates :boat_type_id, presence: true
+  validates :club_id, presence: true
+
+  validates :name, uniqueness: true
 end

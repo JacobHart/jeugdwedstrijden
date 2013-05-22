@@ -1,4 +1,6 @@
-<h1>Editing <%= @team.name %></h1>
+<div class="page-header">
+  <h1><%= @team.name %><small>where do you belong to?</small></h1>
+</div>
 
 <h1>If you want to change which rowers belongs to which team then change the settings in step2 on <%= link_to "the previous page", edit_club_url(@team.club) %></h1>
 

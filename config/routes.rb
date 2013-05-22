@@ -6,17 +6,26 @@
 # Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
 
 # Nu
-# !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)
-# validations
+# # admin before_filter :authorize_user, only: [:edit, :update, :destroy]
+# before_filter :require_signed_in_user
+# In admin nav goed aangeven waar je club kan toevogen
+
 # notices maken! login, warning zoals onder, problemen  drama en verdriet. Custom validations lantern lesson!
 # http://lanternhq.com/courses/15/lessons/54-custom-validations-and-errors   error messegaes is anders dan notice en alert, kijken! lantern lesson custom validation!
 # Hippere realisticer seedfile met ZZV1 ipv team1
 # http://lanternhq.com/courses/15/lessons/42-pushing-to-heroku
 
+# zondr container mooier!
+# result model validates unique combination heat&team
+# rower class model ook unique combination, en team class ook
+# clubs show kan weg toch!? anders opmaak met page header
+# Small text in h1 header weg bij responsive!
+
 # moet dit wel???
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 
 # Controle:
+# validates laat gedaan in modell en niet nagekeken!
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
 # results 1.20 + 2.0 is soms 3.21111111
 # Gaat rank uitrekenen bij meerdere heats netjes?
@@ -24,6 +33,7 @@
 # controleren of je club.id hebt omgeschreven in .name
 # Wat ik  et mentor heb gedaan op club edit pagina met blank?
 # alle destroy warning msges wel netjes?
+# !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)   en sommige unqieness
 
 # Wat niet hoeft
 # Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging (hoeft niet)
@@ -37,7 +47,7 @@
 # Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
-
+# Wel heel cool een navbar die eerst op site zweeft en later onder main navbar plakt, zie bootswatsch
 # opmaak:
 # responsive
 

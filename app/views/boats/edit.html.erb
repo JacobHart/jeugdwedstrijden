@@ -1,5 +1,6 @@
-<h1>Editing Boat #<%= @boat.id %></h1>
-
+<div class="page-header">
+  <h1><%= @boat.name %> <small>where do you race in?</small></h1>
+</div>
 
 <%= form_tag(boat_url(@boat), method: 'put') do %>
 
@@ -8,7 +9,7 @@
     <%= text_field_tag :name, @boat.name %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Boat" %>
   </div>
