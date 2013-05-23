@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(:version => 20130523161540) do
   end
 
   create_table "results", :force => true do |t|
-    t.string  "rank"
-    t.string  "laptime"
     t.integer "heat_id"
     t.integer "team_id"
+    t.integer "rank"
+    t.float   "laptime"
   end
 
   create_table "rower_classifications", :force => true do |t|

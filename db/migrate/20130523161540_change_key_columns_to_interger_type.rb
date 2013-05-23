@@ -19,15 +19,11 @@ class ChangeKeyColumnsToIntergerType < ActiveRecord::Migration
       add_column layout[:table_name], layout[:column], :integer
     end
 
-    # change_column :results, :heat_id, :integer
-    # change_column :results, :team_id, :integer
-    # change_column :rower_classifications, :rower_id, :integer
-    # change_column :rower_classifications, :team_id, :integer
-    # change_column :rowers, :club_id, :integer
-    # change_column :team_classifications, :team_id, :integer
-    # change_column :team_classifications, :heat_id, :integer
-    # change_column :team_classifications, :boat_id, :integer
-    # change_column :teams, :boat_type_id, :integer
-    # change_column :teams, :club_id, :integer
+    remove_column :results, :rank
+    add_column :results, :rank, :integer
+    remove_column :results, :laptime
+    add_column :results, :laptime, :float
+
+
   end
 end
