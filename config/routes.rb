@@ -1,3 +1,7 @@
+# PAPERTRAIL (mentor) gebruiken voor erros heroku!!!!
+# boats en results gaan fout in seed
+
+
 # Seedfile in heroku, Waarom gaat het fout? andere database structuur? Admin login is wel verstuurd.
 # Site doorlopen
 # Graphs!
