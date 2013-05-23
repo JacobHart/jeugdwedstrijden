@@ -15,7 +15,8 @@ class ChangeKeyColumnsToIntergerType < ActiveRecord::Migration
     ]
 
     schema.each do |layout|
-      change_column layout[:table_name], layout[:column], :integer
+      remove_column layout[:table_name], layout[:column]
+      add_column layout[:table_name], layout[:column], :integer
     end
 
     # change_column :results, :heat_id, :integer
