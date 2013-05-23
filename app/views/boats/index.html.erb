@@ -20,12 +20,12 @@
       <tr>
         <td><%= boat.name %></td>
         <% @heats.each do |heat| %>
-          <% if boat.team_classifications.where("heat_id == #{heat.id}").count >= 2  %>
+          <% if boat.team_classifications.where(heat_id: heat.id).count >= 2  %>
           <td style="background-color:red">
           <% else %>
           <td>
           <% end %>
-            <% boat.team_classifications.where("heat_id == #{heat.id}").each do |team_classification| %>
+            <% boat.team_classifications.where(heat_id: heat.id).each do |team_classification| %>
             <%= team_classification.team.name %>
             <% end %>
           </td>
