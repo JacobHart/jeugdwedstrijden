@@ -67,7 +67,7 @@ end
 
 28.times do |index|
   t = Team.new
-  t.name = ("Amstel " + (index+28).to_s)
+  t.name = ("Amstel " + (index).to_s)
   t.boat_type_id = boat_type_ids[ rand(boat_type_ids.length) ]
   t.club_id = c2.id
   t.save
