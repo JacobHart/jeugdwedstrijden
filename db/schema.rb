@@ -37,31 +37,31 @@ ActiveRecord::Schema.define(:version => 20130523161540) do
   create_table "results", :force => true do |t|
     t.string  "rank"
     t.string  "laptime"
-    t.integer "team_id", :limit => 255
-    t.integer "heat_id", :limit => 255
+    t.integer "heat_id"
+    t.integer "team_id"
   end
 
   create_table "rower_classifications", :force => true do |t|
-    t.integer "rower_id", :limit => 255
-    t.integer "team_id",  :limit => 255
+    t.integer "rower_id"
+    t.integer "team_id"
   end
 
   create_table "rowers", :force => true do |t|
     t.string  "name"
     t.string  "age"
-    t.integer "club_id", :limit => 255
+    t.integer "club_id"
   end
 
   create_table "team_classifications", :force => true do |t|
-    t.integer "team_id", :limit => 255
-    t.integer "heat_id", :limit => 255
-    t.integer "boat_id", :limit => 255
+    t.integer "team_id"
+    t.integer "heat_id"
+    t.integer "boat_id"
   end
 
   create_table "teams", :force => true do |t|
     t.string  "name"
-    t.integer "boat_type_id", :limit => 255
-    t.integer "club_id",      :limit => 255
+    t.integer "boat_type_id"
+    t.integer "club_id"
   end
 
 end
