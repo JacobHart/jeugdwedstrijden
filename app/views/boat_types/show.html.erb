@@ -49,9 +49,13 @@
     <% end %>
       <% if signed_in? %>
         <tr>
-          <td colspan="6">
+          <td>
             <%= link_to "calculate rank", calculaterank_url(@boat_type.id), :class => "btn btn-warning" %>
           </td>
+          <td colspan="5">
+            In case a team has fewer results, a time penalty of 10 minutes will be added.
+          </td>
+
         </tr>
       <% end %>
   </tbody>

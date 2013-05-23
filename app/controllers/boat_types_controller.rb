@@ -45,6 +45,22 @@ before_filter :authorize_user, except: [:index, :show]
 
   def calculaterank
     @boat_type = BoatType.find_by_id(params[:id])
+
+@boat_type.teams.each do |team|
+penalties = ((@boat_type.teams.map { |x| x.results.count}).max - team.results.count)
+
+  penalties.times do
+
+      @result = Result.new
+      @result.laptime = "10.00"
+      @result.team_id = team.id
+      @result.save
+
+
+  end
+
+end
+
     teams = @boat_type.teams.sort { |b, a| b.results.sum(:laptime).to_f <=> a.results.sum(:laptime).to_f }
     teams.each_with_index do |team, index|
       team.results.each do |result|

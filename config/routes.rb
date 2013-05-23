@@ -1,57 +1,56 @@
 # Nu
-# Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(   (kan je niks aan doen)
 # Hippere realisticer seedfile met ZZV1 ipv team1. Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats) Randon namen
 # password is havenstraat
-# Daan
-# Sem
-# Milan
-# Levi
-# Luuk
-# Lucas
-# Jayden
-# Thomas
-# Stijn
-# Jesse
-# Finn
-# Ruben
-# Tim
-# Thijs
-# Lars
-# Bram
-# Julian
-# Mees
-# Liam
-# Sven
-# Noah
-# Gijs
-# Max
-# Dean
-# Teun
-# Jan
-# Siem
-# Benjamin
-# Floris
-# Tijn
-# Luca
-# Nick
-# Hugo
-# Jens
-# Adam
-# David
-# Mats
-# Ryan
-# Jasper
-# Roan
-# Tom
-# Pepijn
-# Dylan
-# Koen
-# Niels
-# Stan
-# Cas
-# Ties
-# Olivier
-# Guus
+Daan
+Sem
+Milan
+Levi
+Luuk
+Lucas
+Jayden
+Thomas
+Stijn
+Jesse
+Finn
+Ruben
+Tim
+Thijs
+Lars
+Bram
+Julian
+Mees
+Liam
+Sven
+Noah
+Gijs
+Max
+Dean
+Teun
+Jan
+Siem
+Benjamin
+Floris
+Tijn
+Luca
+Nick
+Hugo
+Jens
+Adam
+David
+Mats
+Ryan
+Jasper
+Roan
+Tom
+Pepijn
+Dylan
+Koen
+Niels
+Stan
+Cas
+Ties
+Olivier
+Guus
 
 # Emma
 # Julia
@@ -105,11 +104,15 @@
 # Sofie
 
 
+# Add a few results!
+# Make one heat strange...
+
 # moet dit wel???
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 
 
 # Controle:
+# Rank bij gelijke score
 # validates laat gedaan in modell en niet nagekeken!
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
 # results 1.20 + 2.0 is soms 3.21111111
