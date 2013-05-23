@@ -29,6 +29,7 @@
 <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <a class="brand">ZZV Jeugdwedstrijden</a>
+
     <ul class="nav">
       <li class="divider-vertical"></li>
       <li class="<%= 'active' if action_name == 'index' &&controller.class.name == 'AboutController' %>"><%= link_to 'About', root_url %></li>
@@ -64,8 +65,8 @@
         </a>
         <ul class="dropdown-menu">
           <li class="nav-header">Administration</li>
-          <li class="<%= 'active' if (action_name == 'index'|| action_name == 'edit'|| action_name == 'new' ) &&controller.class.name == 'ClubsController' %>"><%= link_to 'Clubs (Rowers & Teams)', clubs_url %></li>
-          <li class="<%= 'active' if action_name == 'new' &&controller.class.name == 'AdminsController' %>"><%= link_to 'Resources (Boats & Categories)', new_admin_url %></li>
+          <li class="<%= 'active' if (action_name == 'index'|| action_name == 'edit'|| action_name == 'new' ) &&controller.class.name == 'ClubsController' %>"><%= link_to 'Clubs (add Rowers & Teams)', clubs_url %></li>
+          <li class="<%= 'active' if action_name == 'new' &&controller.class.name == 'AdminsController' %>"><%= link_to 'Resources (Clubs, Boats & Categories)', new_admin_url %></li>
           <li class="divider"></li>
           <li class="nav-header">Info</li>
           <li class="<%= 'active' if action_name == 'index' &&controller.class.name == 'BoatsController' %>"><%= link_to 'Boat Classification', boats_url %></li>

@@ -3,6 +3,11 @@ before_filter :authorize_user
 
   def create
 
+    RowerClassification.where(team_id: params[:team_id]).each do |rower_classification|
+      rower_classification.destroy
+    end
+
+
   [params[:rower_id_0],params[:rower_id_1],params[:rower_id_2],params[:rower_id_3]].each do |i|
     if i.present?
       @rower_classification = RowerClassification.new

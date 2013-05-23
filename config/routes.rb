@@ -1,14 +1,113 @@
 # Nu
-# In admin nav goed aangeven waar je club kan toevogen
-# Hippere realisticer seedfile met ZZV1 ipv team1. Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats)
-# zondr container mooier! Of, toch niet? Foto toevoegen!
+# Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(   (kan je niks aan doen)
+# Hippere realisticer seedfile met ZZV1 ipv team1. Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats) Randon namen
+# password is havenstraat
+# Daan
+# Sem
+# Milan
+# Levi
+# Luuk
+# Lucas
+# Jayden
+# Thomas
+# Stijn
+# Jesse
+# Finn
+# Ruben
+# Tim
+# Thijs
+# Lars
+# Bram
+# Julian
+# Mees
+# Liam
+# Sven
+# Noah
+# Gijs
+# Max
+# Dean
+# Teun
+# Jan
+# Siem
+# Benjamin
+# Floris
+# Tijn
+# Luca
+# Nick
+# Hugo
+# Jens
+# Adam
+# David
+# Mats
+# Ryan
+# Jasper
+# Roan
+# Tom
+# Pepijn
+# Dylan
+# Koen
+# Niels
+# Stan
+# Cas
+# Ties
+# Olivier
+# Guus
 
-# clubs show kan weg toch!? anders opmaak met page header
-# Small text in h1 header weg bij responsive!
-# MOEILIJK KAN NOG NIET ROWER CLASSIFICATION UPDATEN!
+# Emma
+# Julia
+# Sophie
+# Lotte
+# Isa
+# Lisa
+# Saar
+# Lieke
+# Eva
+# Anna
+# Sara
+# Fleur
+# Sanne
+# Tess
+# Lynn
+# Noa
+# Jasmijn
+# Roos
+# Sarah
+# Maud
+# Anne
+# Femke
+# Elin
+# Evi
+# Mila
+# Esmee
+# Naomi
+# Iris
+# Amy
+# Amber
+# Fenna
+# Anouk
+# Olivia
+# Nina
+# Charlotte
+# Luna
+# Britt
+# Elise
+# Eline
+# Feline
+# Floor
+# Milou
+# Liv
+# Lana
+# Fay
+# Lina
+# Yara
+# Vera
+# Maria
+# Sofie
+
 
 # moet dit wel???
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
+
 
 # Controle:
 # validates laat gedaan in modell en niet nagekeken!
@@ -24,13 +123,11 @@
 
 # Wat niet hoeft
 # Bij maken team   aantal rowers afhankelijk van type is nog een uitdaging (hoeft niet)
-# Bij een lege laptime wordt het team automatisch eerste! IDEAAAL :(   (kan je niks aan doen)
-# admin: toevoegen clubs en de rest   admin2: resultaten en heats wijzigen.
 # Als laatste clubs/edit veranderen! (of wel goed zo? wel meer vrijheid voor admin!)
 #!!!VRAGEN!!! invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)(params verstuurd welke geedit moet worden, piece of cake!)
 # JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
 # Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
-
+# Boat ook een boottype geven..  many to many :S  niet nuttig!
 # Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
@@ -38,6 +135,7 @@
 # opmaak:
 # responsive
 
+# Small text in h1 header weg bij responsive!
 
 
 

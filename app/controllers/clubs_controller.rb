@@ -17,12 +17,6 @@ before_filter :authorize_user, except: [:index, :teams, :rowers]
     @clubs = Club.all
   end
 
-  def show
-    @club = Club.find_by_id(params[:id])
-    @teams = Team.all
-    @rowers = Rower.all
-  end
-
   def create
     @club = Club.new
     @club.name = params[:name]
