@@ -150,11 +150,11 @@ end
 
 28.times do |index|
 laptimesarray =  (130 .. 330).to_a.shuffle!
-teaminheat = TeamClassification.where(heat_id: index/4).map{|x| x.team_id}[index%4]
+teaminheat = TeamClassification.where(heat_id: heatarray[index / 4]).map{|x| x.team_id}[index % 4]
     r = Result.new
     r.laptime = (laptimesarray.pop / 100.00)
     r.team_id = teaminheat
-    r.heat_id = heatarray[index / 4 - 1]
+    r.heat_id = heatarray[index / 4]
     r.save
 end
 
