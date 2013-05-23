@@ -7,8 +7,10 @@
     <tr>
       <th>Team</th>
       <th>Rowers</th>
-      <% (@boat_type.teams.map {|i| i.results.count}).max.times do |i| %>
-      <th>Laptime <%=i + 1%></th>
+      <% if (@boat_type.teams.map {|i| i.results}).present? %>
+        <% (@boat_type.teams.map {|i| i.results.count}).max.times do |i| %>
+          <th>Laptime <%=i + 1%></th>
+        <% end %>
       <% end %>
       <% if (@boat_type.teams.map {|i| i.results.count}).max >= 1 %>
       <th>Laptime total</th>
@@ -17,7 +19,6 @@
     </tr>
   </thead>
   <tbody>
-    <%# teams = @boat_type.teams.sort { |b, a| b.results.sum(:laptime).to_f <=> a.results.sum(:laptime).to_f } %>
     <% @boat_type.teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>

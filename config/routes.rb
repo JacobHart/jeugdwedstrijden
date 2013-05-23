@@ -1,17 +1,12 @@
 # PAPERTRAIL (mentor) gebruiken voor erros heroku!!!!
-# boats en results gaan fout in seed
+# boat_types/show GAAT fout    als er een restult is
+# Results per catogory printen!!! IN EXCEL :)
 
-
-# Seedfile in heroku, Waarom gaat het fout? andere database structuur? Admin login is wel verstuurd.
-# Site doorlopen
-# Graphs!
-# Uploaden andere site? Especially domain regristration
+# echt domijn kopen!
 
 # Handleiding schrijven! 1 team verwisselen is (meestal) genoeg :)
 
 # password is havenstraat
-# Add a few results!
-# Make one heat strange...
 
 # moet dit wel???
 # string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
