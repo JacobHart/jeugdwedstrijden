@@ -1,109 +1,12 @@
-# Nu
-# Hippere realisticer seedfile met ZZV1 ipv team1. Of (club) overal weghalen en naam van team ZZV2 maken of overal teams vermelden (ook bij heats) Randon namen
+# Seedfile in heroku
+# Site doorlopen
+# Graphs!
+# Uploaden andere site? Especially domain regristration
+
+# Handleiding schrijven! 1 team verwisselen is (meestal) genoeg :)
+
+
 # password is havenstraat
-Daan
-Sem
-Milan
-Levi
-Luuk
-Lucas
-Jayden
-Thomas
-Stijn
-Jesse
-Finn
-Ruben
-Tim
-Thijs
-Lars
-Bram
-Julian
-Mees
-Liam
-Sven
-Noah
-Gijs
-Max
-Dean
-Teun
-Jan
-Siem
-Benjamin
-Floris
-Tijn
-Luca
-Nick
-Hugo
-Jens
-Adam
-David
-Mats
-Ryan
-Jasper
-Roan
-Tom
-Pepijn
-Dylan
-Koen
-Niels
-Stan
-Cas
-Ties
-Olivier
-Guus
-
-# Emma
-# Julia
-# Sophie
-# Lotte
-# Isa
-# Lisa
-# Saar
-# Lieke
-# Eva
-# Anna
-# Sara
-# Fleur
-# Sanne
-# Tess
-# Lynn
-# Noa
-# Jasmijn
-# Roos
-# Sarah
-# Maud
-# Anne
-# Femke
-# Elin
-# Evi
-# Mila
-# Esmee
-# Naomi
-# Iris
-# Amy
-# Amber
-# Fenna
-# Anouk
-# Olivia
-# Nina
-# Charlotte
-# Luna
-# Britt
-# Elise
-# Eline
-# Feline
-# Floor
-# Milou
-# Liv
-# Lana
-# Fay
-# Lina
-# Yara
-# Vera
-# Maria
-# Sofie
-
-
 # Add a few results!
 # Make one heat strange...
 
@@ -112,6 +15,7 @@ Guus
 
 
 # Controle:
+# Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 # Rank bij gelijke score
 # validates laat gedaan in modell en niet nagekeken!
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
@@ -131,9 +35,9 @@ Guus
 # JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
 # Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
 # Boat ook een boottype geven..  many to many :S  niet nuttig!
+
 # Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien
-# Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 # Wel heel cool een navbar die eerst op site zweeft en later onder main navbar plakt, zie bootswatsch
 # opmaak:
 # responsive

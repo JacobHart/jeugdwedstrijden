@@ -14,13 +14,13 @@ Team.destroy_all
 
 a = Admin.new
   a.name = "admin"
-  a.password = "a"
+  a.password = "havenstraat"
   a.save
 
 
 16.times do |index|
   r = Rower.new
-  r.name = ("Rower " + index.to_s)
+  r.name = ["Daan", "Sem", "Milan", "Levi", "Luuk", "Lucas", "Jayden", "Thomas", "Emma", "Julia", "Sophie", "Lotte", "Isa", "Lisa", "Saar", "Lieke"][index]
   r.age = (10 + rand(8)).to_s
   r.club_id = 1
   r.save
@@ -28,7 +28,7 @@ end
 
 16.times do |index|
   r = Rower.new
-  r.name = ("Rower " + (index+17).to_s)
+  r.name = ["Stijn", "Jesse", "Finn", "Ruben", "Tim", "Thijs", "Lars", "Bram", "Eva", "Anna", "Sara", "Fleur", "Sanne", "Tess", "Lynn", "Noa"][index]
   r.age = (10 + rand(8)).to_s
   r.club_id = 2
   r.save
@@ -40,7 +40,7 @@ end
 
 28.times do |index|
   t = Team.new
-  t.name = ("Team " + index.to_s)
+  t.name = ("ZZV " + index.to_s)
   t.boat_type_id = (rand(32) + 1)
   t.club_id = 1
   t.save
@@ -48,7 +48,7 @@ end
 
 28.times do |index|
   t = Team.new
-  t.name = ("Team " + (index+28).to_s)
+  t.name = ("Amstel " + (index+28).to_s)
   t.boat_type_id = (rand(32) + 1)
   t.club_id = 2
   t.save
@@ -64,11 +64,14 @@ end
 
 
 
-2.times do |index|
+
   c = Club.new
-  c.name = ("Club " + (index + 1).to_s)
+  c.name = "ZZV"
   c.save
-end
+
+  c = Club.new
+  c.name = "Amstel"
+  c.save
 
 12.times do |index|
   b = Boat.new
@@ -79,7 +82,7 @@ end
 # later name = timeslot instead of number
 14.times do |index|
   h = Heat.new
-  h.name = ("Heat " + index.to_s)
+  h.name = ["Heat 9:30", "Heat 10:00", "Heat 10:30", "Heat 11:30", "Heat 12:00", "Heat 12:30", "Heat 13:00", "Heat 13:30", "Heat 14:00", "Heat 14:30", "Heat 15:00", "Heat 15:30", "Heat 16:00", "Heat 16:30"][index]
   h.save
 end
 
@@ -128,12 +131,24 @@ end
 end
 
 # 0-27 teams    0-6 heats
+  teamarray = (1..56).to_a.shuffle!
 56.times do |index|
   t = TeamClassification.new
-  t.team_id = (index + 1).to_s
+
+  t.team_id = teamarray.pop
   t.heat_id = (index/4 + 1).to_s
   t.boat_id = (index%12 + 1).to_s
   t.save
+end
+
+28.times do |index|
+laptimesarray =  (130 .. 330).to_a.shuffle!
+teaminheat = TeamClassification.where(heat_id: index/4).map{|x| x.team_id}[index%4]
+    r = Result.new
+    r.laptime = (laptimesarray.pop / 100.00)
+    r.team_id = teaminheat
+    r.heat_id = (index / 4)
+    r.save
 end
 
 puts "There are now #{Boat.count} Boats in the database"
