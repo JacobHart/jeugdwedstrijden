@@ -1,10 +1,9 @@
-# Seedfile in heroku
+# Seedfile in heroku, Waarom gaat het fout? andere database structuur? Admin login is wel verstuurd.
 # Site doorlopen
 # Graphs!
 # Uploaden andere site? Especially domain regristration
 
 # Handleiding schrijven! 1 team verwisselen is (meestal) genoeg :)
-
 
 # password is havenstraat
 # Add a few results!
@@ -16,7 +15,6 @@
 
 # Controle:
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
-# Rank bij gelijke score
 # validates laat gedaan in modell en niet nagekeken!
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
 # results 1.20 + 2.0 is soms 3.21111111
@@ -41,7 +39,6 @@
 # Wel heel cool een navbar die eerst op site zweeft en later onder main navbar plakt, zie bootswatsch
 # opmaak:
 # responsive
-
 # Small text in h1 header weg bij responsive!
 
 

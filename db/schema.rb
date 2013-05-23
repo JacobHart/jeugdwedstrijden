@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517051757) do
+ActiveRecord::Schema.define(:version => 20130523161540) do
 
   create_table "admins", :force => true do |t|
     t.string "name"
@@ -35,33 +35,33 @@ ActiveRecord::Schema.define(:version => 20130517051757) do
   end
 
   create_table "results", :force => true do |t|
-    t.string "rank"
-    t.string "laptime"
-    t.string "team_id"
-    t.string "heat_id"
+    t.string  "rank"
+    t.string  "laptime"
+    t.integer "team_id", :limit => 255
+    t.integer "heat_id", :limit => 255
   end
 
   create_table "rower_classifications", :force => true do |t|
-    t.string "rower_id"
-    t.string "team_id"
+    t.integer "rower_id", :limit => 255
+    t.integer "team_id",  :limit => 255
   end
 
   create_table "rowers", :force => true do |t|
-    t.string "name"
-    t.string "age"
-    t.string "club_id"
+    t.string  "name"
+    t.string  "age"
+    t.integer "club_id", :limit => 255
   end
 
   create_table "team_classifications", :force => true do |t|
-    t.string "team_id"
-    t.string "heat_id"
-    t.string "boat_id"
+    t.integer "team_id", :limit => 255
+    t.integer "heat_id", :limit => 255
+    t.integer "boat_id", :limit => 255
   end
 
   create_table "teams", :force => true do |t|
-    t.string "name"
-    t.string "boat_type_id"
-    t.string "club_id"
+    t.string  "name"
+    t.integer "boat_type_id", :limit => 255
+    t.integer "club_id",      :limit => 255
   end
 
 end
