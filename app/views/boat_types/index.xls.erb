@@ -1,6 +1,6 @@
-<Workbook>
+<ss:Workbook>
   <% @boat_types.each do |boat_type| %>
-    <Worksheet ss:Name="Results #{boat_type.name}">
+    <ss:Worksheet ss:Name="Results #{boat_type.name}">
       <Table>
         <Row>
           <Cell><Data ss:Type="Number"><%= boat_type.name %></Data></Cell>
@@ -45,6 +45,6 @@
           </Row>
         <% end %>
       </Table>
-    </Worksheet>
+    </ss:Worksheet>
   <% end %>
-</Workbook>
+</ss:Workbook>
