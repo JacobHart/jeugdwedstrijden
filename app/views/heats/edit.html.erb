@@ -6,7 +6,7 @@
       <% if (boat_type.teams.map{|x| x.team_classifications.count}).uniq.count > 1 %>
         <div class="alert alert-error">
           <h4>Warning</h4>
-          <%= boat_type.name %>: Some teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times. Please
+          <%= boat_type.name %>: Some teams are currently classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[0]%> times, while others are classified <%= (boat_type.teams.map{|x| x.team_classifications.count}).uniq[1]%> times. Please adjust.
           <p><% boat_type.teams.each do |team| %>
             <%= link_to team.name, team_url(team) %>(<%= team.team_classifications.count%>x)
           <% end %><p>
