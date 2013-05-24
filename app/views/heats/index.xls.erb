@@ -1,22 +1,11 @@
-<div class="page-header">
-  <h1>Heats <small>when do you race?</small></h1>
-</div>
-
-<%= link_to 'Show results per category', boat_types_url, :class => "btn btn-inverse"  %>
-<%= link_to 'Download to Excel', heats_url(format: "xls"), :class => "btn btn-inverse" %>
-<table class="table table-striped">
-  <thead>
+<table>
     <tr>
       <th>Heat</th>
       <th>Lane 1</th>
       <th>Lane 2</th>
       <th>Lane 3</th>
       <th>Lane 4</th>
-      <th></th>
     </tr>
-  </thead>
-
-  <tbody>
   <% @heats.each do |heat| %>
     <tr>
       <td><%= heat.name %></td>
@@ -44,11 +33,6 @@
         <% (4-heat.teams.each.count).times do%>
         <td></td>
         <% end %>
-        <td>
-          <%= link_to 'Show all rowers', heat_url(heat), :class => "btn btn-inverse"  %>
-        </td>
     </tr>
-
   <% end %>
-  </tbody>
 </table>

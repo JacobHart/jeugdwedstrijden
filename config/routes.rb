@@ -1,17 +1,7 @@
-# !!!!!!!!! RESULT GEEFT NOG LEGE CELLEN BIJ SHOW BOATTYPE ALS JE MINDER RESULTS HEBT
-
-# PAPERTRAIL (mentor) gebruiken voor erros heroku!!!!
-# boat_types/show GAAT fout    als er een restult is
-# Results per catogory printen!!! IN EXCEL :)
-
+# PAPERTRAIL (mentor) gebruiken voor errors heroku!!!!
 # echt domijn kopen!
-
 # Handleiding schrijven! 1 team verwisselen is (meestal) genoeg :)
-
 # password is havenstraat
-
-# moet dit wel???
-# string in floats veranderen en dan migrate opnieuw runnen (makkelijker invoeren op iphone)
 
 
 # Controle:

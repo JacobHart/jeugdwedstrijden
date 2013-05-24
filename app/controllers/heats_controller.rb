@@ -5,6 +5,12 @@ before_filter :authorize_user, except: [:index, :show]
     @heats = Heat.all
     @boat_types = BoatType.all
     @results = Result.all
+
+    respond_to do |format|
+      format.html
+      format.xls
+    end
+
   end
 
   def show
