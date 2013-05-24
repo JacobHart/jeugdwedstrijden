@@ -1,20 +1,6 @@
 <% boat_types.each do |boat_type| %>
 
   <table>
-    <thead>
-      <tr>
-        <th>Team</th>
-        <th>Rowers</th>
-        <% (boat_type.teams.map {|i| i.results.count}).max.times do |i| %>
-            <th>Laptime <%=i + 1%></th>
-        <% end %>
-        <% if (boat_type.teams.map {|i| i.results.count}).max >= 1 %>
-        <th>Laptime total</th>
-        <th>Rank</th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
       <% boat_type.teams.each do |team| %>
         <tr>
           <td><%= team.name %></td>
@@ -56,6 +42,5 @@
             </td>
           </tr>
         <% end %>
-    </tbody>
   </table>
 <% end %>
