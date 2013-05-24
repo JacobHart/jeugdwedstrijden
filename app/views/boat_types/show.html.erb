@@ -7,10 +7,8 @@
     <tr>
       <th>Team</th>
       <th>Rowers</th>
-      <% if (@boat_type.teams.map {|i| i.results}).present? %>
-        <% (@boat_type.teams.map {|i| i.results.count}).max.times do |i| %>
+      <% (@boat_type.teams.map {|i| i.results.count}).max.times do |i| %>
           <th>Laptime <%=i + 1%></th>
-        <% end %>
       <% end %>
       <% if (@boat_type.teams.map {|i| i.results.count}).max >= 1 %>
       <th>Laptime total</th>
@@ -28,13 +26,15 @@
           <% end %>
         </td>
         <% if team.results.present? %>
-        <% team.results.each do |result| %>
-          <td>
-            <%= result.laptime %>
-          </td>
+          <% team.results.each do |result| %>
+            <td>
+              <%= result.laptime %>
+            </td>
 
-        <% end %>
-
+          <% end %>
+          <% ((@boat_type.teams.map {|i| i.results.count}).max - team.results.count).times do |i| %>
+            <td></td>
+          <% end %>
           <td>
             <%= team.results.sum(:laptime) %>
           </td>
@@ -56,7 +56,6 @@
           <td colspan="5">
             In case a team has fewer results, a time penalty of 10 minutes will be added.
           </td>
-
         </tr>
       <% end %>
   </tbody>

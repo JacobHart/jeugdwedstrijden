@@ -2,6 +2,8 @@
   <h1>Categories <small>who do you challenge?</small></h1>
 </div>
 
+<%= link_to 'Download all Results to Excel', boat_types_url(format: "xls"), :class => "btn btn-inverse" %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -25,7 +27,7 @@
           <td></td>
         <% end %>
         <td>
-          <%= link_to 'Show', boat_type_url(boat_type), :class => "btn btn-inverse" %>
+          <%= link_to 'Show Results', boat_type_url(boat_type), :class => "btn btn-inverse" %>
         </td>
       </tr>
     <% end %>

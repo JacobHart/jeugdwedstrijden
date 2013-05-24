@@ -3,10 +3,17 @@ before_filter :authorize_user, except: [:index, :show]
 
   def index
     @boat_types = BoatType.all
+
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   def show
     @boat_type = BoatType.find_by_id(params[:id])
+
+
   end
 
   def create

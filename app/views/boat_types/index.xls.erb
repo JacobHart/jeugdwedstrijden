@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <% @boat_types.each do |boat_type| %>
+    <Worksheet ss:Name="Results #{boat_type.name}">
+      <Table>
+        <Row>
+          <Cell><Data ss:Type="Number"><%= boat_type.name %></Data></Cell>
+        </Row>
+        <Row>
+          <Cell><Data ss:Type="String">Team</Data></Cell>
+          <Cell><Data ss:Type="String">Rowers</Data></Cell>
+          <% if (boat_type.teams.map {|i| i.results.count}).max.present? %>
+            <% (boat_type.teams.map {|i| i.results.count}).max.times do |i| %>
+              <Cell><Data ss:Type="String">Laptime <%=i + 1%></Data></Cell>
+            <% end %>
+            <% if (boat_type.teams.map {|i| i.results.count}).max >= 1 %>
+              <Cell><Data ss:Type="String">Laptime total</Data></Cell>
+              <Cell><Data ss:Type="String">Rank</Data></Cell>
+            <% end %>
+          <% end %>
+        </Row>
+        <% boat_type.teams.each do |team| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= team.name %></Data></Cell>
+            <Cell><Data ss:Type="String">
+              <% team.rowers.each do |rower| %>
+                <%= rower.name %>
+              <% end %>
+            </Data></Cell>
+            <% if team.results.present? %>
+              <% team.results.each do |result| %>
+                <Cell><Data ss:Type="String"><%= result.laptime %></Data></Cell>
+              <% end %>
+              <% ((boat_type.teams.map {|i| i.results.count}).max - team.results.count).times do |i| %>
+                <Cell><Data ss:Type="Number"></Data></Cell>
+              <% end %>
+              <Cell><Data ss:Type="Number"><%= team.results.sum(:laptime) %></Data></Cell>
+              <Cell><Data ss:Type="Number"><%= team.results.first.rank %></Data></Cell>
+            <% else %>
+              <% if (boat_type.teams.map {|i| i.results.count}).max.present? %>
+                <% ((boat_type.teams.map {|i| i.results.count}).max + 2).times do |i| %>
+                  <Cell><Data ss:Type="Number"></Data></Cell>
+                <% end %>
+              <% end %>
+            <% end %>
+          </Row>
+        <% end %>
+      </Table>
+    </Worksheet>
+  <% end %>
+</Workbook>

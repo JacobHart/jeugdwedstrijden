@@ -1,3 +1,5 @@
+# !!!!!!!!! RESULT GEEFT NOG LEGE CELLEN BIJ SHOW BOATTYPE ALS JE MINDER RESULTS HEBT
+
 # PAPERTRAIL (mentor) gebruiken voor erros heroku!!!!
 # boat_types/show GAAT fout    als er een restult is
 # Results per catogory printen!!! IN EXCEL :)
