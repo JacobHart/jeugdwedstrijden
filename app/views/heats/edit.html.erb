@@ -29,7 +29,7 @@
   </thead>
 
   <tbody>
-  <% @heats.sort.each do |heat| %>
+  <% @heats.sort!.each do |heat| %>
     <tr>
       <td><%= heat.name %><br><%= link_to 'Destroy Heat', heat_url(heat), method: 'delete', data: { confirm: "Do you really want to delete this heat?" }, :class => "btn btn-danger"  %></td>
         <% heat.team_classifications.each do |team_classification|%>
