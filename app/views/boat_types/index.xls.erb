@@ -1,9 +1,10 @@
 <ss:Workbook>
   <% @boat_types.each do |boat_type| %>
-    <ss:Worksheet ss:Name="Results #{boat_type.name}">
+    <ss:Worksheet>
+    <ss:Name="Results #{boat_type.name}"
       <Table>
         <Row>
-          <Cell><Data ss:Type="Number"><%= boat_type.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= boat_type.name %></Data></Cell>
         </Row>
         <Row>
           <Cell><Data ss:Type="String">Team</Data></Cell>
@@ -20,7 +21,7 @@
         </Row>
         <% boat_type.teams.each do |team| %>
           <Row>
-            <Cell><Data ss:Type="Number"><%= team.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= team.name %></Data></Cell>
             <Cell><Data ss:Type="String">
               <% team.rowers.each do |rower| %>
                 <%= rower.name %>
@@ -28,7 +29,7 @@
             </Data></Cell>
             <% if team.results.present? %>
               <% team.results.each do |result| %>
-                <Cell><Data ss:Type="String"><%= result.laptime %></Data></Cell>
+                <Cell><Data ss:Type="Number"><%= result.laptime %></Data></Cell>
               <% end %>
               <% ((boat_type.teams.map {|i| i.results.count}).max - team.results.count).times do |i| %>
                 <Cell><Data ss:Type="Number"></Data></Cell>
