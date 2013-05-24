@@ -43,7 +43,7 @@
             <%= hidden_field_tag(:heat_id, team_classification.heat.id) %>
 
             <%= submit_tag "Update", :class => "btn btn-warning"  %>
-            <%= link_to 'Destroy', team_classification_url(TeamClassification.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id)), method: 'delete', data: { confirm: "Do you really want to delete this boatlist?" }, :class => "btn btn-danger"  %>
+            <%= link_to 'Destroy', team_classification_url(TeamClassification.find_by_heat_id_and_team_id(team_classification.heat.id,team_classification.team.id)), method: 'delete', data: { confirm: "Do you really want to delete this team classification?" }, :class => "btn btn-danger"  %>
           <% end %>
         </td>
         <% end %>

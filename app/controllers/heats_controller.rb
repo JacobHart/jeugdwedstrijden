@@ -53,7 +53,11 @@ before_filter :authorize_user, except: [:index, :show]
 
   def destroy
     @heat = Heat.find_by_id(params[:id])
-    @heat.destroy
-        redirect_to :back, notice: "Head removed successfully"
+      TeamClassification.where(heat_id: params[:id]).each do |team_classification|
+        team_classification.destroy
       end
+    @heat.destroy
+    redirect_to :back, notice: "Head removed successfully"
+
+  end
 end
