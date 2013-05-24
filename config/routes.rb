@@ -3,6 +3,33 @@
 # Handleiding schrijven! 1 team verwisselen is (meestal) genoeg :)
 # password is havenstraat
 
+# Bij team ook team classification en rower classification verwijderen zoals heats destroy, wel vermelden wat je weg haald!
+  #  ( t.integer "heat_id"
+  #   results
+  #   "team_classifications" )
+
+# Vermelden welke heats er leeg zijn
+  #   results
+  #   "rower_classifications"
+  #   "team_classifications"
+
+# Vermelden welke teams er leeg zijn
+  #   t.integer "rower_id"
+  #   "rower_classifications"
+
+# Waarschuuwing!!!
+  #   t.integer "club_id"
+  #   "rowers"
+  #   "teams"
+
+# HIER Boat_id = nill
+  #   t.integer "boat_id"
+  #   "team_classifications"
+
+# Waarschuuwing!!!
+  #   t.integer "boat_type_id"
+  #   "teams"
+
 
 # Controle:
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
