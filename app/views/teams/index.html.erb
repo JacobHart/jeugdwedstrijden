@@ -18,30 +18,32 @@
     <% @heats.each do |heat| %>
       <% if heat.teams.map {|x| x.club.name}.include?(@club.name) %>
         <% heat.teams.each do |team| %>
-          <tr>
-            <td><%= heat.name %></td>
-            <td><%= team.name %></td>
-            <td><%= team.boat_type.name %></td>
-            <td>
-              <% team.rowers.each do |rower| %>
-                <%= rower.name %>
-              <% end %>
-            </td>
-            <% if team.results.present? %>
+          <% if team.club == @club %>
+            <tr>
+              <td><%= heat.name %></td>
+              <td><%= team.name %></td>
+              <td><%= team.boat_type.name %></td>
               <td>
-                <%= team.results.first.rank %>
+                <% team.rowers.each do |rower| %>
+                  <%= rower.name %>
+                <% end %>
               </td>
-              <td>
-                (<% team.results.each do |result| %>
-                <%= result.laptime %> ,
-                <% end %>)
-              </td>
-            <% else %>
-              <% ((@club.teams.map {|x| x.results.count }).max + 1).times do %>
-                <td></td>
+              <% if team.results.present? %>
+                <td>
+                  <%= team.results.first.rank %>
+                </td>
+                <td>
+                  (<% team.results.each do |result| %>
+                  <%= result.laptime %> ,
+                  <% end %>)
+                </td>
+              <% else %>
+                <% ((@club.teams.map {|x| x.results.count }).max + 1).times do %>
+                  <td></td>
+                <% end %>
               <% end %>
-            <% end %>
-          </tr>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
