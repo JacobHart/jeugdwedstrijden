@@ -1,6 +1,22 @@
 class BoatTypesController < ApplicationController
 before_filter :authorize_user, except: [:index, :show]
 
+
+before_filter :category_with_teams?, only: [:destroy]
+
+
+def category_with_teams?
+        @boat_type = BoatType.find_by_id(params[:id])
+        @boat_type.errors.add(:base, "Cannot delete category with teams assigned") unless @boat_type.teams.count == 0
+        unless @boat_type.errors.blank?
+          flash[:error] = @boat_type.errors.full_messages
+          redirect_to :back
+        end
+
+end
+
+
+
   def index
     @boat_types = BoatType.all
 

@@ -3,7 +3,7 @@ before_filter :authorize_user
   def new
     @results = Result.all
     @result = Result.new
-    @heats = Heat.all
+    @heats = Heat.all.sort! { |a,b| a.name.to_i <=> b.name.to_i }
   end
 
   def create
@@ -24,7 +24,7 @@ before_filter :authorize_user
   def edit
     @boat_types = BoatType.all
     @result = Result.find_by_id(params[:id])
-    @heats = Heat.all
+    @heats = Heat.all.sort! { |a,b| a.name.to_i <=> b.name.to_i }
   end
 
   def update

@@ -17,7 +17,7 @@
   <tbody>
     <% @heats.each do |heat| %>
       <% if heat.teams.map {|x| x.club.name}.include?(@club.name) %>
-        <% heat.sort!.teams.each do |team| %>
+        <% heat.teams.each do |team| %>
           <% if team.club == @club %>
             <tr>
               <td><%= heat.name %></td>

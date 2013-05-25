@@ -82,7 +82,7 @@ end
 # later name = timeslot instead of number
 14.times do |index|
   h = Heat.new
-  h.name = ["Heat 9:30", "Heat 10:00", "Heat 10:30", "Heat 11:30", "Heat 12:00", "Heat 12:30", "Heat 13:00", "Heat 13:30", "Heat 14:00", "Heat 14:30", "Heat 15:00", "Heat 15:30", "Heat 16:00", "Heat 16:30"][index]
+  h.name = ["9:30", "10:00", "10:30", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"][index]
   h.save
 end
 

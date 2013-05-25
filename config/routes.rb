@@ -2,36 +2,14 @@
 # echt domijn kopen!
 # Handleiding schrijven! 1 team verwisselen is (meestal) genoeg :)
 # password is havenstraat
+# Ik mag nu geen roeiers wissen die teams hebben en omgekeerd, dat wordt leuk:(
+# En kan teams ook niet leegmaken...
 
-# Bij team ook team classification en rower classification verwijderen zoals heats destroy, wel vermelden wat je weg haald!
-  #  ( t.integer "heat_id"
-  #   results
-  #   "team_classifications" )
 
-# Vermelden welke heats er leeg zijn
-  #   results
-  #   "rower_classifications"
-  #   "team_classifications"
-
-# Vermelden welke teams er leeg zijn
-  #   t.integer "rower_id"
-  #   "rower_classifications"
-
-# Waarschuuwing!!!
-  #   t.integer "club_id"
-  #   "rowers"
-  #   "teams"
-
-# HIER Boat_id = nill
-  #   t.integer "boat_id"
-  #   "team_classifications"
-
-# Waarschuuwing!!!
-  #   t.integer "boat_type_id"
-  #   "teams"
 
 
 # Controle:
+# Bij een lege resource gaat de hele site op zijn gat??
 # Controleren of alles is gedefineerd  zoals results die later showen in heats pagina!
 # validates laat gedaan in modell en niet nagekeken!
 # Gaan alle lastige dingen zoals results op alle (inclusief team) paginas goed?
@@ -39,8 +17,8 @@
 # Gaat rank uitrekenen bij meerdere heats netjes?
 # alle links controleren, sterkte!
 # controleren of je club.id hebt omgeschreven in .name
-# Wat ik  et mentor heb gedaan op club edit pagina met blank?
-# alle destroy warning msges wel netjes?
+# Wat ik  met mentor heb gedaan op club edit pagina met blank?
+# alle destroy warning msges wel netjes? ook pop up?
 # !!! Velden mogen niet leeg zijn, creeerde net 20 boten :)   en sommige unqieness
 #  OEf werken alle notices and errors?
 
@@ -49,8 +27,6 @@
 # Als laatste clubs/edit veranderen! (of wel goed zo? wel meer vrijheid voor admin!)
 #!!!VRAGEN!!! invoeren boten, boat_ids e.d.apparte pagina admin (lastig met keuze menu!)(params verstuurd welke geedit moet worden, piece of cake!)
 # JUST DO IT! Boattype category noemen!! DAT IS EEN BITCH EERST NIEUWE GENEREREN DAN OUDE VERWIJDEREN :(
-# Routes opruimen en controlers en links en navbar herstellen. Echt nadenken over urls ZOals 1/edit voor heats?! Dat is gek!!!
-# Boat ook een boottype geven..  many to many :S  niet nuttig!
 
 # Later
 # !! uitkijken dat navbar niet op elkaar stapeld dan is de helft niet te zien

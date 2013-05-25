@@ -1,6 +1,23 @@
 class TeamsController < ApplicationController
 before_filter :authorize_user, except: [:show]
 
+
+before_filter :teams_with_rowers_or_assigned_to_heats?, only: [:destroy]
+
+
+def teams_with_rowers_or_assigned_to_heats?
+        @team = Team.find_by_id(params[:id])
+        @team.errors.add(:base, "Can not delete teams with rowers or assigned to heats") unless @team.team_classifications.count == 0 && @team.rower_classifications.count == 0
+        unless @team.errors.blank?
+          flash[:error] = @team.errors.full_messages
+          redirect_to :back
+        end
+
+end
+
+
+
+
   def index
     @teams = Team.all
   end

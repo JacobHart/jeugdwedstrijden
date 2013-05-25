@@ -1,6 +1,9 @@
 class RowerClassificationsController < ApplicationController
 before_filter :authorize_user
 
+
+
+
   def create
 
     RowerClassification.where(team_id: params[:team_id]).each do |rower_classification|

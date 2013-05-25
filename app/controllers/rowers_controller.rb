@@ -1,6 +1,20 @@
 class RowersController < ApplicationController
 before_filter :authorize_user
 
+before_filter :rower_with_rower_classification?, only: [:destroy]
+
+
+def rower_with_rower_classification?
+        @rower = Rower.find_by_id(params[:id])
+        @rower.errors.add(:base, "Can not delete rower which is assigned to teams") unless @rower.rower_classifications.count == 0
+        unless @rower.errors.blank?
+          flash[:error] = @rower.errors.full_messages
+          redirect_to :back
+        end
+
+end
+
+
   def index
     @rowers = Rower.all
   end
